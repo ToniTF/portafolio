@@ -8,7 +8,7 @@ import Home from './pages/Home'
 import About from './pages/About'
 import Projects from './pages/Projects'
 import ProjectDetail from './pages/ProjectDetail'
-import Reiki from './pages/Reiki'
+import CrecimientoInterior from './pages/CrecimientoInterior'
 import Contact from './pages/Contact'
 import AdminPanel from './pages/AdminPanel'
 import './App.css'
@@ -25,7 +25,7 @@ function App() {
               <Route path="/about" element={<About />} />
               <Route path="/projects" element={<Projects />} />
               <Route path="/projects/:id" element={<ProjectDetail />} />
-              <Route path="/reiki" element={<Reiki />} />
+              <Route path="/crecimiento-interior" element={<CrecimientoInterior />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/admin" element={<AdminPanel />} />
             </Routes>
@@ -36,7 +36,5 @@ function App() {
     </ThemeProvider>
   )
 }
-
-export default App
 
 export default App

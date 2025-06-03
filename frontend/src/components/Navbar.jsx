@@ -9,7 +9,6 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false)
   const location = useLocation()
   const { theme, toggleTheme, isDark } = useTheme()
-
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50)
@@ -17,11 +16,12 @@ const Navbar = () => {
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+  
   const navItems = [
     { name: 'Inicio', path: '/', icon: User },
     { name: 'Sobre mí', path: '/about', icon: User },
     { name: 'Proyectos', path: '/projects', icon: Code },
-    { name: 'Reiki', path: '/reiki', icon: Heart },
+    { name: 'Crecimiento Interior', path: '/crecimiento-interior', icon: Heart },
     { name: 'Contacto', path: '/contact', icon: Mail }
   ]
 
