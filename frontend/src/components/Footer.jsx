@@ -32,11 +32,10 @@ const Footer = () => {
       color: 'hover:text-green-600'
     }
   ]
-
   const quickLinks = [
     { name: 'Acerca de', path: '/about' },
     { name: 'Proyectos', path: '/projects' },
-    { name: 'Reiki', path: '/reiki' },
+    { name: 'Mindfulness', path: '/mindfulness' },
     { name: 'Contacto', path: '/contact' }
   ]
 
@@ -59,8 +58,7 @@ const Footer = () => {
               </span>
             </Link>
             <p className="text-gray-400 mb-4 max-w-md">
-              Desarrollador Full Stack apasionado por crear soluciones digitales innovadoras. 
-              Maestro de Reiki dedicado al crecimiento espiritual y el bienestar.
+              Desarrollador Full Stack comprometido con la creación de soluciones digitales innovadoras, integrando tecnología y bienestar para generar impacto positivo.
             </p>
             <div className="flex items-center space-x-4">
               <div className="flex items-center space-x-1 text-blue-400">
@@ -69,7 +67,8 @@ const Footer = () => {
               </div>
               <div className="flex items-center space-x-1 text-amber-400">
                 <Heart size={16} />
-                <span className="text-sm">Reiki</span>
+                <span className="text-sm">Mindfulness
+                </span>
               </div>
             </div>
           </div>
