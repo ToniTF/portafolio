@@ -89,7 +89,7 @@ const About = () => {
             Sobre <span className="text-blue-600 dark:text-blue-400">Mí</span>
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed">
-            Desarrollador Full Stack apasionado por crear soluciones innovadoras que combinan
+            Desarrollador Junior apasionado por crear soluciones innovadoras que combinan
             tecnología de vanguardia con experiencias de usuario excepcionales.
           </p>
         </motion.div>
@@ -113,11 +113,13 @@ const About = () => {
               </div>
               <div className="space-y-4 text-gray-600 dark:text-gray-400">
                 <p>
-                  Apasionado por la tecnología y el desarrollo web, mi interés por la programación comenzó desde joven, experimentando con BASIC y explorando MS-DOS a nivel usuario.
+                  Apasionado por la tecnología y el desarrollo web, mi interés por la programación comenzó desde joven, experimentando con BASIC y explorando MS-DOS a nivel usuario
                 </p>
                 <p>
                   He completado formación certificada en desarrollo de aplicaciones web así como certificación Python a través de la beca Open Academy del Santander e Inteligencia Artificial con Google AI. Mi trayectoria profesional incluye roles de liderazgo en sectores como astilleros y grandes superficies, donde he desarrollado habilidades de gestión, resolución de problemas y trabajo en equipo.
-                </p>                <p>
+                </p>
+                <p>Cuento con un título en programación, configuración y reparación de ordenadores, lo que refuerza mi conocimiento técnico y mi capacidad para resolver problemas tecnológicos con eficacia.</p>
+                <p>
                   Ahora, aplico esa experiencia a la creación de soluciones digitales eficientes, enfocadas en calidad, escalabilidad y buenas prácticas.
                 </p>
               </div>
@@ -161,7 +163,8 @@ const About = () => {
                 </p>
                 <p>La innovación tecnológica no solo transforma industrias, sino que también impulsa un cambio positivo en la manera en que las personas interactúan con el mundo. Por eso, me apasiona desarrollar soluciones que no solo sean eficientes y escalables, sino que también generen impacto real, fomentando la creatividad, la accesibilidad y el equilibrio entre productividad y bienestar.
 
-                </p>              </div>
+                </p>
+                <p>Busco aportar valor a cada proyecto con una visión centrada en la innovación y el crecimiento impulsando soluciones que no solo resuelvan problemas, sino que también generen experiencias positivas.</p>           </div>
 
               {/* <Button className="mt-8 w-full" variant="secondary">
                 <Download className="h-4 w-4 mr-2" />
