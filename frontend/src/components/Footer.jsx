@@ -14,18 +14,8 @@ const Footer = () => {
       color: 'hover:text-gray-800'
     },
     {
-      name: 'LinkedIn',
-      icon: Linkedin,
-      url: 'https://linkedin.com/in/antonio-troitino',
-      color: 'hover:text-blue-600'
-    },    {
-      name: 'Instagram',
-      icon: Instagram,
-      url: 'https://instagram.com/antonio.troitino',
-      color: 'hover:text-pink-600'
-    },
-    {
-      name: 'Email',      icon: Mail,
+      name: 'Email',
+      icon: Mail,
       url: 'mailto:antonio@troitino.dev',
       color: 'hover:text-green-600'
     }
@@ -54,12 +44,9 @@ const Footer = () => {
               </span>
             </Link>
             <p className="text-gray-400 mb-4 max-w-md">
-              Desarrollador Full Stack comprometido con la creación de soluciones digitales innovadoras, integrando tecnología y bienestar para generar impacto positivo.
+              Desarrollador comprometido con la creación de soluciones digitales innovadoras, integrando tecnología y bienestar para generar impacto positivo.
             </p>            <div className="flex items-center space-x-4">
-              <div className="flex items-center space-x-1 text-blue-400">
-                <Code size={16} />
-                <span className="text-sm">Desarrollo</span>
-              </div>
+              
             </div>
           </div>
 

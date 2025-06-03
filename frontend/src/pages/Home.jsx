@@ -432,7 +432,7 @@ const Home = () => {
               ¿Listo para tu próximo proyecto?
             </h2>
             <p className="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
-              Combino tecnología avanzada con intuición espiritual para crear 
+              Combino tecnología avanzada con intuición para crear 
               soluciones que realmente conectan con las personas.
             </p>            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Button as={Link} to="/contact" variant="secondary" size="lg">
