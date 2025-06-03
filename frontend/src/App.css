@@ -11,6 +11,8 @@
 
 .dark {
   color-scheme: dark;
+  background-color: #1f2937;
+  color: #f3f4f6;
 }
 
 /* Scrollbar personalizado */
@@ -23,7 +25,7 @@
 }
 
 .dark ::-webkit-scrollbar-track {
-  background-color: #1f2937;
+  background-color: #f3f4f6;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -32,7 +34,7 @@
 }
 
 .dark ::-webkit-scrollbar-thumb {
-  background-color: #4b5563;
+  background-color: #d1d5db;
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -40,7 +42,7 @@
 }
 
 .dark ::-webkit-scrollbar-thumb:hover {
-  background-color: #6b7280;
+  background-color: #9ca3af;
 }
 
 .App {
@@ -103,8 +105,8 @@
 }
 
 .dark .glass {
-  background: rgba(17, 24, 39, 0.25);
-  border: 1px solid rgba(75, 85, 99, 0.18);
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #f3f4f6;
 }
 
 /* Efectos de parallax */
@@ -143,7 +145,8 @@
 }
 
 .dark .hero-section {
-  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  background-color: #1f2937;
+  color: #f3f4f6;
 }
 
 .project-card {
@@ -159,10 +162,13 @@
 }
 
 .dark .project-card {
+  background-color: #1f2937;
+  color: #f3f4f6;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
 .dark .project-card:hover {
+  background-color: #374151;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
 
@@ -177,6 +183,7 @@
 }
 
 .dark .btn-hover-lift:hover {
+  background-color: #374151;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
 
@@ -188,8 +195,8 @@
 }
 
 .dark .navbar-glass {
-  background: rgba(17, 24, 39, 0.95);
-  border-bottom: 1px solid rgba(75, 85, 99, 0.2);
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #f3f4f6;
 }
 
 /* Loading animations */
