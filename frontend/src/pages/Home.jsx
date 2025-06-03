@@ -150,7 +150,7 @@ const Home = () => {
                 </Badge>
                 <Badge className="bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200 px-4 py-2 text-lg">
                   <Heart size={18} className="mr-2" />
-                  Maestro de Reiki
+                  Crecimiento Personal
                 </Badge>
               </motion.div>
             </motion.div>
@@ -166,7 +166,7 @@ const Home = () => {
               <span className="text-blue-600 dark:text-blue-400 font-semibold">
                 soluciones digitales innovadoras
               </span>{' '}
-              con tecnología moderna y equilibrio espiritual
+              con tecnología moderna y equilibrio emocional
             </motion.p>
 
             {/* CTA Buttons */}
@@ -195,7 +195,7 @@ const Home = () => {
                 className="group"
               >
                 <Heart className="mr-2 h-5 w-5 group-hover:text-red-500 transition-colors" />
-                Servicios Reiki
+                Mindfulness
               </Button>
               
               <Button
@@ -269,7 +269,7 @@ const Home = () => {
               Sobre <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Mí</span>
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              Desarrollador apasionado por crear experiencias digitales excepcionales y Maestro de Reiki dedicado al bienestar integral
+              Desarrollador apasionado por crear experiencias digitales excepcionales y dedicado al bienestar integral
             </p>
           </motion.div>
 

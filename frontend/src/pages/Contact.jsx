@@ -75,8 +75,8 @@ const Contact = () => {
     {
       icon: Mail,
       title: 'Email',
-      value: 'antonio@troitino.dev',
-      href: 'mailto:antonio@troitino.dev',
+      value: 'tonitf@gmail.com',
+      href: 'mailto:tonitf@gmail.com',
       description: 'Para consultas generales y proyectos'
     },
     {

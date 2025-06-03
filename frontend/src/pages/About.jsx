@@ -152,7 +152,7 @@ const About = () => {
                   crear experiencias significativas.
                 </p>
                 <p>
-                  Mi enfoque holístico combina la excelencia técnica con el bienestar 
+                  Mi enfoque combina la excelencia técnica con el bienestar 
                   personal, entendiendo que el desarrollo personal es tan importante 
                   como el profesional.
                 </p>
