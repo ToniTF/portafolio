@@ -35,16 +35,15 @@ export const projectsData = [
     live_url: "https://task-manager-demo.com",
     featured: false,
     completion_date: "2024-01-10"
-  },
-  {
+  },  {
     id: 4,
-    title: "Sitio Web Mindfulness",
-    description: "Plataforma web para servicios de mindfulness y bienestar. Incluye sistema de reservas, blog y área de miembros.",
+    title: "Sitio Web de Bienestar",
+    description: "Plataforma web para servicios de bienestar y salud. Incluye sistema de reservas, blog y área de miembros.",
     image: "/assets/images/projects/reiki-website.jpg",
     category: "Web Development",
     technologies: ["React", "Next.js", "Tailwind CSS", "Strapi CMS"],
-    github: "https://github.com/tuusuario/mindfulness-website",
-    live_url: "https://mindfulness-demo.com",
+    github: "https://github.com/tuusuario/wellness-website",
+    live_url: "https://wellness-demo.com",
     featured: false,
     completion_date: "2023-12-05"
   },

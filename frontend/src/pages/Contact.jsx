@@ -70,7 +70,6 @@ const Contact = () => {
       setIsSubmitting(false)
     }
   }
-
   const contactInfo = [
     {
       icon: Mail,
@@ -78,13 +77,6 @@ const Contact = () => {
       value: 'tonitf@gmail.com',
       href: 'mailto:tonitf@gmail.com',
       description: 'Para consultas generales y proyectos'
-    },
-    {
-      icon: Heart,
-      title: 'Reiki',
-      value: 'reiki@troitino.dev',
-      href: 'mailto:reiki@troitino.dev',
-      description: 'Para servicios de Reiki y sanación'
     },
     {
       icon: Phone,
@@ -114,11 +106,10 @@ const Contact = () => {
       icon: Linkedin,
       url: 'https://linkedin.com/in/antonio-troitino',
       color: 'hover:text-blue-600'
-    },
-    {
+    },    {
       name: 'Instagram',
       icon: Instagram,
-      url: 'https://instagram.com/antonio.reiki',
+      url: 'https://instagram.com/antonio.troitino',
       color: 'hover:text-pink-600'
     }
   ]
@@ -135,9 +126,8 @@ const Contact = () => {
           >
             <h1 className="text-4xl md:text-6xl font-display font-bold text-white mb-6">
               Hablemos
-            </h1>
-            <p className="text-xl text-blue-100 max-w-3xl mx-auto">
-              ¿Tienes un proyecto en mente? ¿Necesitas servicios de Reiki? 
+            </h1>            <p className="text-xl text-blue-100 max-w-3xl mx-auto">
+              ¿Tienes un proyecto en mente? 
               Me encantaría conocerte y ver cómo puedo ayudarte.
             </p>
           </motion.div>
@@ -216,14 +206,13 @@ const Contact = () => {
                   <div className="flex justify-between">
                     <span className="text-gray-600">Lunes - Viernes</span>
                     <span className="text-gray-900">9:00 - 18:00</span>
-                  </div>
-                  <div className="flex justify-between">
+                  </div>                  <div className="flex justify-between">
                     <span className="text-gray-600">Sábados</span>
                     <span className="text-gray-900">10:00 - 14:00</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-gray-600">Domingos</span>
-                    <span className="text-gray-900">Solo Reiki</span>
+                    <span className="text-gray-900">Cerrado</span>
                   </div>
                 </div>
               </motion.div>
@@ -339,11 +328,9 @@ const Contact = () => {
                       name="type"
                       value={formData.type}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
-                    >
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"                    >
                       <option value="general">Consulta general</option>
                       <option value="development">Proyecto de desarrollo</option>
-                      <option value="reiki">Servicios de Reiki</option>
                     </select>
                   </div>
 
@@ -400,104 +387,9 @@ const Contact = () => {
                         <span>Enviar Mensaje</span>
                       </>
                     )}
-                  </motion.button>
-                </form>
+                  </motion.button>                </form>
               </motion.div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Sección de servicios rápidos */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            className="text-center mb-12"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-gray-900 mb-4">
-              ¿Cómo Puedo Ayudarte?
-            </h2>
-            <p className="text-lg text-gray-600">
-              Ofrezco dos áreas principales de servicio para cubrir tus necesidades.
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <motion.div
-              className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-8 text-center"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-            >
-              <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-6">
-                <Code className="text-white" size={32} />
-              </div>
-              
-              <h3 className="text-2xl font-semibold text-gray-900 mb-4">
-                Desarrollo Web
-              </h3>
-              <p className="text-gray-600 mb-6">
-                Aplicaciones web modernas, sitios responsivos, e-commerce, 
-                sistemas personalizados y consultoría técnica.
-              </p>
-              
-              <div className="space-y-2 text-sm text-gray-600 mb-6">
-                <p>• Aplicaciones React y Vue.js</p>
-                <p>• Backend con PHP y Node.js</p>
-                <p>• Sistemas de gestión</p>
-                <p>• Optimización y performance</p>
-              </div>
-              
-              <motion.button
-                className="btn-primary"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => setFormData({...formData, type: 'development'})}
-              >
-                Hablar de mi proyecto
-              </motion.button>
-            </motion.div>
-
-            <motion.div
-              className="bg-gradient-to-br from-orange-50 to-red-100 rounded-xl p-8 text-center"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.1 }}
-              viewport={{ once: true }}
-            >
-              <div className="w-16 h-16 bg-gradient-reiki rounded-full flex items-center justify-center mx-auto mb-6">
-                <Heart className="text-white" size={32} />
-              </div>
-              
-              <h3 className="text-2xl font-semibold text-gray-900 mb-4">
-                Servicios de Reiki
-              </h3>
-              <p className="text-gray-600 mb-6">
-                Sesiones de sanación energética, iniciaciones, talleres de meditación 
-                y acompañamiento en el crecimiento espiritual.
-              </p>
-              
-              <div className="space-y-2 text-sm text-gray-600 mb-6">
-                <p>• Sesiones individuales</p>
-                <p>• Iniciaciones en Reiki</p>
-                <p>• Talleres grupales</p>
-                <p>• Sanación a distancia</p>
-              </div>
-              
-              <motion.button
-                className="btn-reiki"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => setFormData({...formData, type: 'reiki'})}
-              >
-                Reservar sesión
-              </motion.button>
-            </motion.div>
           </div>
         </div>
       </section>

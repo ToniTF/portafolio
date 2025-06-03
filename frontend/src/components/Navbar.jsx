@@ -16,11 +16,9 @@ const Navbar = () => {
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
-  
-  const navItems = [    { name: 'Inicio', path: '/', icon: User },
+    const navItems = [    { name: 'Inicio', path: '/', icon: User },
     { name: 'Sobre mí', path: '/about', icon: User },
     { name: 'Proyectos', path: '/projects', icon: Code },
-    { name: 'Mindfulness', path: '/crecimiento-interior', icon: Heart },
     { name: 'Contacto', path: '/contact', icon: Mail }
   ]
 

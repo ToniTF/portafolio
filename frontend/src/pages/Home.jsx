@@ -151,14 +151,9 @@ const Home = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.9 }}
-              >
-                <Badge className="bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200 px-4 py-2 text-lg">
+              >                <Badge className="bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200 px-4 py-2 text-lg">
                   <Code size={18} className="mr-2" />
                   Developer
-                </Badge>
-                <Badge className="bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200 px-4 py-2 text-lg">
-                  <Heart size={18} className="mr-2" />
-                  Desarrollo integral
                 </Badge>
               </motion.div>
             </motion.div>
@@ -183,8 +178,7 @@ const Home = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1.3 }}
-            >
-              <Button
+            >              <Button
                 as={Link}
                 to="/projects"
                 size="lg"
@@ -193,17 +187,6 @@ const Home = () => {
                 <Sparkles className="mr-2 h-5 w-5 group-hover:animate-spin" />
                 Ver Proyectos
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
-              
-              <Button
-                as={Link}
-                to="/reiki"
-                variant="outline"
-                size="lg"
-                className="group"
-              >
-                <Heart className="mr-2 h-5 w-5 group-hover:text-red-500 transition-colors" />
-                Mindfulness
               </Button>
               
               <Button
@@ -451,15 +434,10 @@ const Home = () => {
             <p className="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
               Combino tecnología avanzada con intuición espiritual para crear 
               soluciones que realmente conectan con las personas.
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            </p>            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Button as={Link} to="/contact" variant="secondary" size="lg">
                 <Mail className="mr-2 h-5 w-5" />
                 Trabajemos Juntos
-              </Button>
-              <Button as={Link} to="/reiki" variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-blue-600">
-                <Heart className="mr-2 h-5 w-5" />
-                Explora el Reiki
               </Button>
             </div>
           </motion.div>

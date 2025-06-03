@@ -166,16 +166,6 @@
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
 
-.reiki-section {
-  background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
-  padding: 4rem 0;
-  border-radius: 20px;
-}
-
-.dark .reiki-section {
-  background: linear-gradient(135deg, #374151 0%, #1f2937 100%);
-}
-
 /* Efectos de hover para botones */
 .btn-hover-lift {
   transition: all 0.3s ease;

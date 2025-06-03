@@ -18,11 +18,10 @@ const Footer = () => {
       icon: Linkedin,
       url: 'https://linkedin.com/in/antonio-troitino',
       color: 'hover:text-blue-600'
-    },
-    {
+    },    {
       name: 'Instagram',
       icon: Instagram,
-      url: 'https://instagram.com/antonio.reiki',
+      url: 'https://instagram.com/antonio.troitino',
       color: 'hover:text-pink-600'
     },
     {
@@ -31,11 +30,9 @@ const Footer = () => {
       url: 'mailto:antonio@troitino.dev',
       color: 'hover:text-green-600'
     }
-  ]
-  const quickLinks = [
+  ]  const quickLinks = [
     { name: 'Acerca de', path: '/about' },
     { name: 'Proyectos', path: '/projects' },
-    { name: 'Mindfulness', path: '/mindfulness' },
     { name: 'Contacto', path: '/contact' }
   ]
 
@@ -59,16 +56,10 @@ const Footer = () => {
             </Link>
             <p className="text-gray-400 mb-4 max-w-md">
               Desarrollador Full Stack comprometido con la creación de soluciones digitales innovadoras, integrando tecnología y bienestar para generar impacto positivo.
-            </p>
-            <div className="flex items-center space-x-4">
+            </p>            <div className="flex items-center space-x-4">
               <div className="flex items-center space-x-1 text-blue-400">
                 <Code size={16} />
                 <span className="text-sm">Desarrollo</span>
-              </div>
-              <div className="flex items-center space-x-1 text-amber-400">
-                <Heart size={16} />
-                <span className="text-sm">Mindfulness
-                </span>
               </div>
             </div>
           </div>

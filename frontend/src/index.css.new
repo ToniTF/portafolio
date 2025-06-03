@@ -3,14 +3,14 @@
 @tailwind utilities;
 
 /* Estilos personalizados */
-:root {  --primary-color: #4f46e5;
+:root {
+  --primary-color: #4f46e5;
   --secondary-color: #7c3aed;
   --accent-color: #06b6d4;
   --dark-color: #1f2937;
   --light-color: #f8fafc;
   --gradient-primary: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
   --gradient-secondary: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
-}
 }
 
 * {
@@ -103,21 +103,61 @@ body {
   background-clip: text;
 }
 
-/* Responsive */
+/* Estilos para la animación de carga */
+.loading-spinner {
+  @apply w-12 h-12 border-4 border-blue-200 border-t-blue-600 rounded-full animate-spin;
+}
+
+/* Estilos para dispositivos móviles */
 @media (max-width: 768px) {
-  .container {
-    padding-left: 1rem;
-    padding-right: 1rem;
+  .mobile-nav {
+    display: none;
+  }
+  
+  .mobile-nav.active {
+    display: block;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    right: 0;
+    background: white;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    padding: 20px;
   }
 }
 
-/* Loading spinner */
-.loading-spinner {
-  @apply inline-block w-6 h-6 border-2 border-current border-r-transparent rounded-full animate-spin;
+/* Estilos para modo oscuro */
+.dark body {
+  color: var(--light-color);
+  background-color: var(--dark-color);
 }
 
-/* Parallax effect */
-.parallax {
-  transform: translateZ(0);
-  transition: transform 0.1s ease-out;
+.dark .navbar-glass {
+  background: rgba(31, 41, 55, 0.8);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.dark .card-glass {
+  background: rgba(31, 41, 55, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+/* Estilos para listas */
+.custom-list {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.custom-list li {
+  position: relative;
+  padding-left: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.custom-list li::before {
+  content: "•";
+  color: var(--primary-color);
+  font-weight: bold;
+  position: absolute;
+  left: 0;
 }
