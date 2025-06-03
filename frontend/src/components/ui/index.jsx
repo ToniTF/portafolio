@@ -31,6 +31,7 @@ export const Button = ({
   loading = false,
   disabled = false,
   className = '',
+  as: Component = 'button',
   ...props 
 }) => {
   const variants = {
@@ -58,8 +59,10 @@ export const Button = ({
     ${className}
   `
 
+  const MotionComponent = motion(Component)
+
   return (
-    <motion.button
+    <MotionComponent
       className={baseClasses}
       disabled={disabled || loading}
       whileHover={{ scale: disabled ? 1 : 1.02 }}
@@ -73,7 +76,7 @@ export const Button = ({
         </svg>
       )}
       {children}
-    </motion.button>
+    </MotionComponent>
   )
 }
 

@@ -91,8 +91,7 @@ const Home = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
               </div>
-              
-              {/* Floating badges */}
+                {/* Floating badges */}
               <motion.div
                 className="absolute -top-2 -right-2 bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-medium"
                 animate={{ rotate: [0, 5, 0, -5, 0] }}
@@ -107,8 +106,26 @@ const Home = () => {
                 animate={{ rotate: [0, -5, 0, 5, 0] }}
                 transition={{ duration: 2, repeat: Infinity, delay: 1 }}
               >
-                <Heart size={16} className="inline mr-1" />
-                Reiki
+                <Code size={16} className="inline mr-1" />
+                PHP
+              </motion.div>
+              
+              <motion.div
+                className="absolute -top-2 -left-2 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-medium"
+                animate={{ rotate: [0, 3, 0, -3, 0] }}
+                transition={{ duration: 2.5, repeat: Infinity, delay: 0.5 }}
+              >
+                <Code size={16} className="inline mr-1" />
+                Python
+              </motion.div>
+              
+              <motion.div
+                className="absolute -bottom-2 -right-2 bg-cyan-500 text-white px-3 py-1 rounded-full text-sm font-medium"
+                animate={{ rotate: [0, -3, 0, 3, 0] }}
+                transition={{ duration: 2.2, repeat: Infinity, delay: 1.5 }}
+              >
+                <Code size={16} className="inline mr-1" />
+                React
               </motion.div>
             </motion.div>
 
@@ -146,11 +163,11 @@ const Home = () => {
               >
                 <Badge className="bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200 px-4 py-2 text-lg">
                   <Code size={18} className="mr-2" />
-                  Full Stack Developer
+                  Developer
                 </Badge>
                 <Badge className="bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200 px-4 py-2 text-lg">
                   <Heart size={18} className="mr-2" />
-                  Crecimiento Personal
+                  Desarrollo integral
                 </Badge>
               </motion.div>
             </motion.div>
@@ -162,11 +179,11 @@ const Home = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1.1 }}
             >
-              Creando{' '}
+              Diseñando{' '}
               <span className="text-blue-600 dark:text-blue-400 font-semibold">
-                soluciones digitales innovadoras
+              soluciones digitales 
               </span>{' '}
-              con tecnología moderna y equilibrio emocional
+              que combinan tecnología moderna con un enfoque estratégico y consciente, logrando innovación con claridad y propósito.
             </motion.p>
 
             {/* CTA Buttons */}
@@ -269,7 +286,7 @@ const Home = () => {
               Sobre <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Mí</span>
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              Desarrollador apasionado por crear experiencias digitales excepcionales y dedicado al bienestar integral
+              Desarrollador apasionado por aprender a crear experiencias digitales excepcionales
             </p>
           </motion.div>
 
@@ -281,12 +298,10 @@ const Home = () => {
               viewport={{ once: true }}
             >
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
-                Fusionando Tecnología y Espiritualidad
+                Fusionando Tecnología y Conocimiento Interior
               </h3>
               <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
-                Con más de 5 años de experiencia en desarrollo web, me especializo en crear aplicaciones modernas
-                usando las últimas tecnologías. Mi enfoque único combina la precisión técnica con la intuición
-                espiritual que he desarrollado como Maestro de Reiki.
+                Me especializo en crear aplicaciones modernas usando las últimas tecnologías. Mi enfoque combina tecnología con una visión consciente, aplico herramientas modernas con un enfoque reflexivo y estratégico, logrando soluciones que equilibran innovación y claridad.
               </p>
               <div className="flex flex-wrap gap-3 mb-6">
                 {['React', 'Node.js', 'PHP', 'Python', 'TypeScript', 'MongoDB'].map((skill) => (

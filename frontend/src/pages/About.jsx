@@ -1,11 +1,11 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { 
-  Code, 
-  Heart, 
-  Star, 
-  Download, 
-  MapPin, 
+import {
+  Code,
+  Heart,
+  Star,
+  Download,
+  MapPin,
   Calendar,
   Award,
   Lightbulb,
@@ -23,7 +23,9 @@ const About = () => {
     { name: 'Python', level: 82, color: 'bg-blue-600' },
     { name: 'MySQL', level: 88, color: 'bg-orange-500' },
     { name: 'Git', level: 92, color: 'bg-red-500' },
-    { name: 'Docker', level: 78, color: 'bg-blue-400' }
+    { name: 'Java', level: 78, color: 'bg-blue-400' },
+    { name: 'Wordpress', level: 85, color: 'bg-green-300' },
+    { name: 'Prestashop', level: 65, color: 'bg-purple-700' }
   ]
 
   const experiences = [
@@ -76,7 +78,7 @@ const About = () => {
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 pt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        
+
         {/* Hero Section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -87,7 +89,7 @@ const About = () => {
             Sobre <span className="text-blue-600 dark:text-blue-400">Mí</span>
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed">
-            Desarrollador Full Stack apasionado por crear soluciones innovadoras que combinan 
+            Desarrollador Full Stack apasionado por crear soluciones innovadoras que combinan
             tecnología de vanguardia con experiencias de usuario excepcionales.
           </p>
         </motion.div>
@@ -111,26 +113,23 @@ const About = () => {
               </div>
               <div className="space-y-4 text-gray-600 dark:text-gray-400">
                 <p>
-                  Con más de 6 años de experiencia en desarrollo web, he tenido la oportunidad 
-                  de trabajar en proyectos diversos, desde startups hasta empresas consolidadas.
+                  Apasionado por la tecnología y el desarrollo web, mi interés por la programación comenzó desde joven, experimentando con BASIC y explorando MS-DOS a nivel usuario.
                 </p>
                 <p>
-                  Mi enfoque se centra en escribir código limpio, mantenible y escalable, 
-                  siempre buscando las mejores prácticas y tecnologías emergentes.
+                  He completado formación certificada en desarrollo de aplicaciones web así como certificación Python a través de la beca Open Academy del Santander e Inteligencia Artificial con Google AI. Mi trayectoria profesional incluye roles de liderazgo en sectores como astilleros y grandes superficies, donde he desarrollado habilidades de gestión, resolución de problemas y trabajo en equipo.
                 </p>                <p>
-                  Además del desarrollo técnico, me apasiona el crecimiento personal y la 
-                  ayuda a otros a través de prácticas de bienestar y mindfulness.
+                  Ahora, aplico esa experiencia a la creación de soluciones digitales eficientes, enfocadas en calidad, escalabilidad y buenas prácticas.
                 </p>
               </div>
-              
-              <div className="flex items-center space-x-6 mt-8 text-sm text-gray-500 dark:text-gray-400">
+
+              <div className="flex items-center space-x-6 mt-8 text-sm text-gray-500 dark:text-gray-400">S
                 <div className="flex items-center">
                   <MapPin className="h-4 w-4 mr-2" />
                   España
                 </div>
                 <div className="flex items-center">
                   <Calendar className="h-4 w-4 mr-2" />
-                  6+ años experiencia
+                  20 años trabajando
                 </div>
               </div>
             </Card>
@@ -148,24 +147,26 @@ const About = () => {
               </div>
               <div className="space-y-4 text-gray-600 dark:text-gray-400">
                 <p>
-                  Creo firmemente en el poder de la tecnología para mejorar vidas y 
+                  Creo firmemente en el poder de la tecnología para mejorar vidas y
                   crear experiencias significativas.
                 </p>
                 <p>
-                  Mi enfoque combina la excelencia técnica con el bienestar 
-                  personal, entendiendo que el desarrollo personal es tan importante 
+                  Mi enfoque combina el desarrollo con el bienestar
+                  personal, entiendo que el desarrollo personal es tan importante
                   como el profesional.
                 </p>
                 <p>
-                  La colaboración, el aprendizaje continuo y la empatía son pilares 
+                  La colaboración, el aprendizaje continuo y la empatía son pilares
                   fundamentales en mi forma de trabajar y relacionarme.
                 </p>
-              </div>
+                <p>La innovación tecnológica no solo transforma industrias, sino que también impulsa un cambio positivo en la manera en que las personas interactúan con el mundo. Por eso, me apasiona desarrollar soluciones que no solo sean eficientes y escalables, sino que también generen impacto real, fomentando la creatividad, la accesibilidad y el equilibrio entre productividad y bienestar.
 
-              <Button className="mt-8 w-full" variant="secondary">
+                </p>              </div>
+
+              {/* <Button className="mt-8 w-full" variant="secondary">
                 <Download className="h-4 w-4 mr-2" />
                 Descargar CV
-              </Button>
+              </Button> */}
             </Card>
           </div>
         </motion.div>
@@ -179,7 +180,7 @@ const About = () => {
         >
           <Card className="p-8">
             <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center">
-              Habilidades Técnicas
+              Habilidades Técnicas Asistidas por IA
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {skills.map((skill, index) => (
