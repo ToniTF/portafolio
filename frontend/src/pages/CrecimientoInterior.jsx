@@ -138,15 +138,12 @@ const CrecimientoInterior = () => {
               >
                 <Flower className="text-white" size={40} />
               </motion.div>
-            </div>
-
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Crecimiento <span className="text-yellow-300">Interior</span>
+            </div>            <h1 className="text-4xl md:text-6xl font-bold mb-6">
+              <span className="text-yellow-300">Mindfulness</span>
             </h1>
-            
-            <p className="text-xl md:text-2xl text-purple-100 mb-8 max-w-4xl mx-auto">
-              Un viaje hacia el bienestar integral que combina técnicas ancestrales 
-              con herramientas modernas de desarrollo personal
+              <p className="text-xl md:text-2xl text-purple-100 mb-8 max-w-4xl mx-auto">
+              Un viaje hacia el bienestar integral que combina técnicas de atención plena 
+              con herramientas modernas de desarrollo personal y crecimiento espiritual
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6">
@@ -187,16 +184,15 @@ const CrecimientoInterior = () => {
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">
                 Mi <span className="text-purple-600 dark:text-purple-400">Enfoque</span>
               </h2>
-              
-              <p className="text-lg text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
-                Creo firmemente en la integración del desarrollo tecnológico con el crecimiento espiritual. 
-                La tecnología nos conecta con el mundo exterior, mientras que las prácticas de crecimiento 
-                interior nos conectan con nuestro mundo interno, creando un equilibrio perfecto para una vida plena.
+                <p className="text-lg text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
+                Creo firmemente en la integración del desarrollo tecnológico con las prácticas de mindfulness. 
+                La tecnología nos conecta con el mundo exterior, mientras que la atención plena nos conecta 
+                con nuestro mundo interno, creando un equilibrio perfecto para una vida plena.
               </p>
 
               <p className="text-lg text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
-                Mi misión es acompañarte en este viaje de autodescubrimiento, combinando técnicas ancestrales 
-                como el Reiki con herramientas modernas de coaching y desarrollo personal.
+                Mi misión es acompañarte en este viaje de autodescubrimiento, combinando técnicas de mindfulness 
+                con herramientas modernas de coaching y desarrollo personal.
               </p>
 
               <div className="grid grid-cols-2 gap-4">
@@ -236,10 +232,9 @@ const CrecimientoInterior = () => {
                 <div className="text-center">
                   <div className="w-20 h-20 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-6">
                     <Heart className="text-white" size={32} />
-                  </div>
-                  <blockquote className="text-lg italic text-gray-700 dark:text-gray-300 mb-4">
-                    "El crecimiento interior no es un destino, sino un viaje continuo de 
-                    autodescubrimiento y transformación."
+                  </div>                  <blockquote className="text-lg italic text-gray-700 dark:text-gray-300 mb-4">
+                    "El mindfulness no es un destino, sino un viaje continuo de 
+                    autodescubrimiento y presencia consciente."
                   </blockquote>
                   <p className="text-sm text-gray-500 dark:text-gray-400">- Antonio Troitiño</p>
                 </div>
@@ -261,9 +256,8 @@ const CrecimientoInterior = () => {
           >
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
               Mis <span className="text-purple-600 dark:text-purple-400">Servicios</span>
-            </h2>
-            <p className="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-              Ofrezco una gama completa de servicios de crecimiento personal adaptados a tus necesidades específicas.
+            </h2>            <p className="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+              Ofrezco una gama completa de servicios de mindfulness y desarrollo personal adaptados a tus necesidades específicas.
             </p>
           </motion.div>
 
@@ -335,9 +329,8 @@ const CrecimientoInterior = () => {
           >
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
               Certificaciones y <span className="text-purple-600 dark:text-purple-400">Formación</span>
-            </h2>
-            <p className="text-lg text-gray-600 dark:text-gray-400">
-              Mi preparación y certificaciones en el campo del crecimiento personal y sanación energética.
+            </h2>            <p className="text-lg text-gray-600 dark:text-gray-400">
+              Mi preparación y certificaciones en el campo del mindfulness y desarrollo personal.
             </p>
           </motion.div>
 
@@ -374,10 +367,9 @@ const CrecimientoInterior = () => {
           >
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
               ¿Listo para tu Transformación?
-            </h2>
-            <p className="text-xl text-purple-100 mb-8 max-w-3xl mx-auto">
-              Comienza tu viaje hacia el equilibrio y el crecimiento personal. 
-              Estoy aquí para acompañarte en este proceso de transformación.
+            </h2>            <p className="text-xl text-purple-100 mb-8 max-w-3xl mx-auto">
+              Comienza tu viaje hacia el equilibrio y la presencia consciente. 
+              Estoy aquí para acompañarte en este proceso de transformación a través del mindfulness.
             </p>
             
             <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6">

@@ -117,10 +117,9 @@ const About = () => {
                 <p>
                   Mi enfoque se centra en escribir código limpio, mantenible y escalable, 
                   siempre buscando las mejores prácticas y tecnologías emergentes.
-                </p>
-                <p>
+                </p>                <p>
                   Además del desarrollo técnico, me apasiona el crecimiento personal y la 
-                  ayuda a otros a través de prácticas de bienestar y crecimiento interior.
+                  ayuda a otros a través de prácticas de bienestar y mindfulness.
                 </p>
               </div>
               
