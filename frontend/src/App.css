@@ -259,8 +259,6 @@
   transform: translateY(-20px);
   transition: opacity 300ms, transform 300ms;
 }
-  margin: 2rem 0;
-}
 
 .skill-tag {
   background: rgba(79, 70, 229, 0.1);

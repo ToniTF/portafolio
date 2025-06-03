@@ -12,7 +12,7 @@ import {
   Users,
   Briefcase
 } from 'lucide-react'
-import { Card, Button, Badge } from '../components/ui'
+import { Card, Button, Badge } from '../components/ui/index.jsx'
 
 const About = () => {
   const skills = [

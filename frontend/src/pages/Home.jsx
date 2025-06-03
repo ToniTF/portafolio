@@ -17,7 +17,7 @@ import {
   Calendar
 } from 'lucide-react'
 import { usePortfolio, useProjects } from '../hooks/useApi'
-import { Card, Button, Badge, LoadingSpinner } from '../components/ui'
+import { Card, Button, Badge, LoadingSpinner } from '../components/ui/index.jsx'
 
 const Home = () => {
   const { data: portfolioData, loading: portfolioLoading } = usePortfolio()

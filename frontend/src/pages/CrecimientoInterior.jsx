@@ -18,7 +18,7 @@ import {
   BookOpen,
   Lightbulb
 } from 'lucide-react'
-import { Card, Button, Badge } from '../components/ui'
+import { Card, Button, Badge } from '../components/ui/index.jsx'
 
 const CrecimientoInterior = () => {
   const [loading, setLoading] = useState(false)

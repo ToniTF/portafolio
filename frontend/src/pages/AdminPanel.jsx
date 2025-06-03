@@ -17,7 +17,7 @@ import {
   CheckCircle,
   XCircle
 } from 'lucide-react'
-import { Card, Button, Input, LoadingSpinner, Badge } from '../components/ui'
+import { Card, Button, Input, LoadingSpinner, Badge } from '../components/ui/index.jsx'
 import { useApi } from '../contexts/ApiContext'
 
 const AdminPanel = () => {
