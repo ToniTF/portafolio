@@ -214,9 +214,7 @@ const About = () => {
               ))}
             </div>
           </Card>
-        </motion.div>
-
-        {/* Experience Section */}
+        </motion.div>        {/* Experience Section - Temporalmente comentado
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
@@ -264,8 +262,7 @@ const About = () => {
             ))}
           </div>
         </motion.div>
-
-        {/* Achievements Section */}
+        */}        {/* Achievements Section - Temporalmente comentado
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
@@ -298,6 +295,7 @@ const About = () => {
             ))}
           </div>
         </motion.div>
+        */}
       </div>
     </div>
   )
