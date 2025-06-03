@@ -178,7 +178,7 @@ const Home = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1.3 }}
-            >              <Button
+            >              {/* <Button
                 as={Link}
                 to="/projects"
                 size="lg"
@@ -187,9 +187,9 @@ const Home = () => {
                 <Sparkles className="mr-2 h-5 w-5 group-hover:animate-spin" />
                 Ver Proyectos
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
+              </Button> */}
               
-              <Button
+              {/* <Button
                 as="a"
                 href="/assets/cv/antonio-troitino-cv.pdf"
                 download
@@ -199,7 +199,7 @@ const Home = () => {
               >
                 <Download className="mr-2 h-5 w-5 group-hover:animate-bounce" />
                 Descargar CV
-              </Button>
+              </Button> */}
             </motion.div>
 
             {/* Social Links */}
