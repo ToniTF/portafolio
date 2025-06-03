@@ -336,6 +336,25 @@ const Projects = () => {
           )}
         </div>
       </section>
+
+      {/* Botón para GitHub */}
+      <motion.div
+        className="text-center mt-12"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+      >
+        <a
+          href="https://github.com/ToniTF?tab=repositories"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center px-6 py-3 bg-blue-500 text-white rounded-lg text-lg font-medium hover:bg-blue-600 transition-colors duration-300"
+        >
+          Ver Repositorios en GitHub
+          <Github className="ml-2 h-5 w-5" />
+        </a>
+      </motion.div>
     </div>
   )
 }
