@@ -23,9 +23,9 @@ const About = () => {
     { name: 'Python', level: 82, color: 'bg-blue-600' },
     { name: 'MySQL', level: 88, color: 'bg-orange-500' },
     { name: 'Git', level: 92, color: 'bg-red-500' },
-    { name: 'Java', level: 78, color: 'bg-blue-400' },
-    { name: 'Wordpress', level: 85, color: 'bg-green-300' },
-    { name: 'Prestashop', level: 65, color: 'bg-purple-700' }
+    { name: 'Java', level: 78, color: 'bg-blue-500' },
+    { name: 'Wordpress', level: 85, color: 'bg-green-500' },
+    { name: 'Prestashop', level: 65, color: 'bg-purple-500' }
   ]
 
   const experiences = [
