@@ -7,7 +7,6 @@ import {
   Send, 
   Code, 
   Heart,
-  Clock,
   CheckCircle,
   AlertCircle,
   Github,
@@ -81,8 +80,8 @@ const Contact = () => {
     {
       icon: Phone,
       title: 'Teléfono',
-      value: '+34 XXX XXX XXX',
-      href: 'tel:+34XXXXXXXXX',
+      value: '+34 622 221 434',
+      href: 'tel:+34622221434',
       description: 'Llamadas y WhatsApp'
     },
     {
@@ -183,38 +182,7 @@ const Contact = () => {
                         {content}
                       </div>
                     )
-                  })}
-                </div>
-              </motion.div>
-
-              {/* Horarios */}
-              <motion.div
-                className="bg-white rounded-xl p-6 shadow-lg"
-                initial={{ opacity: 0, x: -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                viewport={{ once: true }}
-              >
-                <div className="flex items-center space-x-2 mb-4">
-                  <Clock className="text-blue-600" size={20} />
-                  <h3 className="text-lg font-semibold text-gray-900">
-                    Horarios de Atención
-                  </h3>
-                </div>
-                
-                <div className="space-y-2 text-sm">
-                  <div className="flex justify-between">
-                    <span className="text-gray-600">Lunes - Viernes</span>
-                    <span className="text-gray-900">9:00 - 18:00</span>
-                  </div>                  <div className="flex justify-between">
-                    <span className="text-gray-600">Sábados</span>
-                    <span className="text-gray-900">10:00 - 14:00</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-600">Domingos</span>
-                    <span className="text-gray-900">Cerrado</span>
-                  </div>
-                </div>
+                  })}                </div>
               </motion.div>
 
               {/* Redes sociales */}
