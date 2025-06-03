@@ -11,32 +11,21 @@ import {
   AlertCircle,
   Lightbulb
 } from 'lucide-react'
+import { getProjectById } from '../data/projects'
 
 const ProjectDetail = () => {
   const { id } = useParams()
   const [project, setProject] = useState(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
-
   useEffect(() => {
-    const fetchProject = async () => {
-      try {
-        const response = await fetch(`/api/projects/${id}`)
-        if (response.ok) {
-          const data = await response.json()
-          setProject(data)
-        } else {
-          setError('Proyecto no encontrado')
-        }
-      } catch (error) {
-        console.error('Error fetching project:', error)
-        setError('Error al cargar el proyecto')
-      } finally {
-        setLoading(false)
-      }
+    const project = getProjectById(id)
+    if (project) {
+      setProject(project)
+    } else {
+      setError('Proyecto no encontrado')
     }
-
-    fetchProject()
+    setLoading(false)
   }, [id])
 
   if (loading) {

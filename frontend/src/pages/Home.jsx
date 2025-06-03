@@ -16,30 +16,21 @@ import {
   MapPin,
   Calendar
 } from 'lucide-react'
-import { usePortfolio, useProjects } from '../hooks/useApi'
-import { Card, Button, Badge, LoadingSpinner } from '../components/ui/index.jsx'
+import { getFeaturedProjects } from '../data/projects'
+import { Card, Button, Badge } from '../components/ui/index.jsx'
 
 const Home = () => {
-  const { data: portfolioData, loading: portfolioLoading } = usePortfolio()
-  const { projects, loading: projectsLoading } = useProjects()
   const { scrollY } = useScroll()
   
   // Parallax effects
   const heroY = useTransform(scrollY, [0, 500], [0, 150])
   const heroOpacity = useTransform(scrollY, [0, 300], [1, 0])
 
-  const featuredProjects = projects.filter(p => p.featured).slice(0, 3)
+  // Obtener proyectos destacados de los datos estáticos
+  const featuredProjects = getFeaturedProjects().slice(0, 3)
 
   const scrollToSection = (id) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
-  }
-
-  if (portfolioLoading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-purple-50 dark:from-gray-900 dark:to-gray-800">
-        <LoadingSpinner size="lg" />
-      </div>
-    )
   }
 
   return (
@@ -359,16 +350,10 @@ const Home = () => {
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
               Una selección de mis trabajos más recientes que demuestran mi experiencia 
               en desarrollo web y aplicaciones modernas.
-            </p>
-          </motion.div>
+            </p>          </motion.div>
 
-          {projectsLoading ? (
-            <div className="flex justify-center">
-              <LoadingSpinner size="lg" />
-            </div>
-          ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {featuredProjects.map((project, index) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {featuredProjects.map((project, index) => (
                 <motion.div
                   key={project.id}
                   initial={{ opacity: 0, y: 50 }}
@@ -431,12 +416,10 @@ const Home = () => {
                         <span>Ver detalles</span>
                         <ArrowRight className="ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                       </Link>
-                    </div>
-                  </Card>
+                    </div>                  </Card>
                 </motion.div>
               ))}
             </div>
-          )}
 
           <motion.div
             className="text-center mt-12"

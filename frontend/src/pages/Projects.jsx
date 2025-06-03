@@ -11,34 +11,24 @@ import {
   Grid,
   List
 } from 'lucide-react'
+import { projectsData, getCategories } from '../data/projects'
 
 const Projects = () => {
-  const [projects, setProjects] = useState([])
-  const [filteredProjects, setFilteredProjects] = useState([])
-  const [loading, setLoading] = useState(true)
+  const [filteredProjects, setFilteredProjects] = useState(projectsData)
+  const [loading, setLoading] = useState(false)
   const [searchTerm, setSearchTerm] = useState('')
   const [selectedCategory, setSelectedCategory] = useState('all')
   const [viewMode, setViewMode] = useState('grid')
 
-  useEffect(() => {
-    const fetchProjects = async () => {
-      try {
-        const response = await fetch('/api/projects')
-        const data = await response.json()
-        setProjects(data)
-        setFilteredProjects(data)
-      } catch (error) {
-        console.error('Error fetching projects:', error)
-      } finally {
-        setLoading(false)
-      }
-    }
+  // Obtener categorías disponibles
+  const categories = getCategories()
 
-    fetchProjects()
+  // Inicializar con todos los proyectos
+  useEffect(() => {
+    setFilteredProjects(projectsData)
   }, [])
-
   useEffect(() => {
-    let filtered = projects
+    let filtered = projectsData
 
     // Filtrar por categoría
     if (selectedCategory !== 'all') {
@@ -58,10 +48,7 @@ const Projects = () => {
       )
     }
 
-    setFilteredProjects(filtered)
-  }, [projects, selectedCategory, searchTerm])
-
-  const categories = ['all', 'Web Application', 'Mobile App', 'Data Visualization', 'Business Application', 'Portfolio']
+    setFilteredProjects(filtered)  }, [searchTerm, selectedCategory])
 
   if (loading) {
     return (
@@ -216,15 +203,18 @@ const Projects = () => {
                         </div>
                       </div>
                       
-                      <div className="p-6">
-                        <div className="flex items-center justify-between mb-2">
+                      <div className="p-6">                        <div className="flex items-center justify-between mb-2">
                           <span className="text-sm text-gray-500 flex items-center">
                             <Tag size={14} className="mr-1" />
                             {project.category}
                           </span>
                           <span className="text-sm text-gray-500 flex items-center">
                             <Calendar size={14} className="mr-1" />
-                            {new Date(project.completion_date).toLocaleDateString('es-ES')}
+                            {new Date(project.completion_date).toLocaleDateString('es-ES', {
+                              year: 'numeric',
+                              month: 'long',
+                              day: 'numeric'
+                            })}
                           </span>
                         </div>
                         
@@ -274,10 +264,13 @@ const Projects = () => {
                             <span className="text-sm text-gray-500 flex items-center">
                               <Tag size={14} className="mr-1" />
                               {project.category}
-                            </span>
-                            <span className="text-sm text-gray-500 flex items-center">
+                            </span>                            <span className="text-sm text-gray-500 flex items-center">
                               <Calendar size={14} className="mr-1" />
-                              {new Date(project.completion_date).toLocaleDateString('es-ES')}
+                              {new Date(project.completion_date).toLocaleDateString('es-ES', {
+                                year: 'numeric',
+                                month: 'long',
+                                day: 'numeric'
+                              })}
                             </span>
                           </div>
                           {project.featured && (

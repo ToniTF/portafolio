@@ -60,6 +60,11 @@
   background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
 }
 
+/* Estilos para fondos gradientes */
+.bg-gradient-primary {
+  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+}
+
 /* Animaciones */
 @keyframes float {
   0%, 100% { transform: translateY(0px); }

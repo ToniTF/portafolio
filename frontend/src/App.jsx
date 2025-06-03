@@ -22,10 +22,10 @@ function App() {
           <main className="min-h-screen">
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/projects" element={<Projects />} />
+              <Route path="/about" element={<About />} />              <Route path="/projects" element={<Projects />} />
               <Route path="/projects/:id" element={<ProjectDetail />} />
-              <Route path="/crecimiento-interior" element={<CrecimientoInterior />} />
+              <Route path="/mindfulness" element={<CrecimientoInterior />} />
+              <Route path="/reiki" element={<CrecimientoInterior />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/admin" element={<AdminPanel />} />
             </Routes>
