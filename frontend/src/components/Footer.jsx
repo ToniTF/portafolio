@@ -25,12 +25,11 @@ const Footer = () => {
       color: 'hover:text-pink-600'
     },
     {
-      name: 'Email',
-      icon: Mail,
+      name: 'Email',      icon: Mail,
       url: 'mailto:antonio@troitino.dev',
       color: 'hover:text-green-600'
     }
-  ]  const quickLinks = [
+  ];  const quickLinks = [
     { name: 'Acerca de', path: '/about' },
     { name: 'Proyectos', path: '/projects' },
     { name: 'Contacto', path: '/contact' }

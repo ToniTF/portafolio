@@ -88,11 +88,32 @@ body {
 
 /* Estilos para los botones */
 .btn-primary {
-  @apply bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:shadow-lg hover:scale-105;
+  background-image: linear-gradient(to right, #4f46e5, #7c3aed);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+
+.btn-primary:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  transform: scale(1.05);
 }
 
 .btn-secondary {
-  @apply bg-white text-gray-800 px-6 py-3 rounded-lg font-medium border border-gray-300 transition-all duration-300 hover:shadow-lg hover:scale-105;
+  background-color: white;
+  color: #1f2937;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  border: 1px solid #e5e7eb;
+  transition: all 0.3s;
+}
+
+.btn-secondary:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  transform: scale(1.05);
 }
 
 /* Estilos para el texto */
@@ -103,27 +124,35 @@ body {
   background-clip: text;
 }
 
-/* Estilos para la animación de carga */
-.loading-spinner {
-  @apply w-12 h-12 border-4 border-blue-200 border-t-blue-600 rounded-full animate-spin;
+/* Responsive */
+@media (max-width: 768px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
 }
 
-/* Estilos para dispositivos móviles */
-@media (max-width: 768px) {
-  .mobile-nav {
-    display: none;
+/* Loading spinner */
+.loading-spinner {
+  display: inline-block;
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 9999px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
   }
-  
-  .mobile-nav.active {
-    display: block;
-    position: absolute;
-    top: 80px;
-    left: 0;
-    right: 0;
-    background: white;
-    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-  }
+}
+
+/* Parallax effect */
+.parallax {
+  transform: translateZ(0);
+  transition: transform 0.1s ease-out;
 }
 
 /* Estilos para modo oscuro */
@@ -140,24 +169,4 @@ body {
 .dark .card-glass {
   background: rgba(31, 41, 55, 0.9);
   border: 1px solid rgba(0, 0, 0, 0.2);
-}
-
-/* Estilos para listas */
-.custom-list {
-  list-style-type: none;
-  padding-left: 0;
-}
-
-.custom-list li {
-  position: relative;
-  padding-left: 1rem;
-  margin-bottom: 0.5rem;
-}
-
-.custom-list li::before {
-  content: "•";
-  color: var(--primary-color);
-  font-weight: bold;
-  position: absolute;
-  left: 0;
 }
