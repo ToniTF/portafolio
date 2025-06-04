@@ -57,7 +57,7 @@ class GeminiService {
 - E-commerce con pasarelas de pago: Desarrollado con WordPress y WooCommerce, con integraciones de múltiples pasarelas de pago y optimizaciones que aumentaron conversiones un 25%.
 - Aplicación web para gestión de tareas: Creada con React y Node.js, incluye autenticación JWT, notificaciones en tiempo real y dashboard analítico.
 - E-commerce especializado: Plataforma personalizada con sistema de recomendaciones basado en preferencias del usuario e integración con proveedores mediante API.
-- Portafolio web: Desarrollado con React, incluye sistema de contenidos dinámicos, chat inteligente con IA y animaciones optimizadas.
+- Portafolio web: Desarrollado con React, incluye sistema de contenidos dinámicos, charla inteligente con IA y animaciones optimizadas.
 - Blog Informal: Plataforma para compartir ideas desarrollada con React, Node.js y API.
 
 === FILOSOFÍA PROFESIONAL ===

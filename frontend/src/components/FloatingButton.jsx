@@ -5,17 +5,17 @@ const FloatingButton = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [prompt, setPrompt] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const [chatHistory, setChatHistory] = useState([]);
+  const [charlaHistory, setcharlaHistory] = useState([]);
 
-  const handleChat = async (userPrompt) => {
+  const handlecharla = async (userPrompt) => {
     try {
       setIsLoading(true);
       // Agregar el mensaje del usuario al historial
       const newMessage = { text: userPrompt, isUser: true };
-      setChatHistory(prev => [...prev, newMessage]);
+      setcharlaHistory(prev => [...prev, newMessage]);
       
       // Usar ruta simple de la API
-      const apiUrl = '/api/gemini/chat.php';
+      const apiUrl = '/api/gemini/charla.php';
       
       const response = await fetch(apiUrl, {
         method: "POST",
@@ -40,7 +40,7 @@ const FloatingButton = () => {
         }
         
         // Agregar la respuesta de la IA al historial
-        setChatHistory(prev => [
+        setcharlaHistory(prev => [
           ...prev, 
           { text: data.response || "Lo siento, no pude generar una respuesta.", isUser: false }
         ]);
@@ -51,7 +51,7 @@ const FloatingButton = () => {
       
     } catch (error) {
       console.error("Error:", error);
-      setChatHistory(prev => [
+      setcharlaHistory(prev => [
         ...prev, 
         { text: `Error: ${error.message}`, isUser: false, isError: true }
       ]);
@@ -64,7 +64,7 @@ const FloatingButton = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (prompt.trim()) {
-      handleChat(prompt);
+      handlecharla(prompt);
     }
   };
 
@@ -76,25 +76,25 @@ const FloatingButton = () => {
         className={`fixed bottom-4 right-4 z-50 rounded-full shadow-lg transition-colors duration-300 overflow-hidden ${
           isOpen ? 'bg-red-500 p-2' : 'bg-white p-0' 
         }`}
-        aria-label={isOpen ? "Cerrar chat" : "Abrir chat"}
+        aria-label={isOpen ? "Cerrar charla" : "Abrir charla"}
         style={{ width: isOpen ? '40px' : '50px', height: isOpen ? '40px' : '50px' }}
       >
         {isOpen ? (
           <X size={24} className="text-white" />
         ) : (
           <img 
-            src="/assets/images/chat-avatar.png" 
-            alt="Chat con Antonio" 
+            src="/assets/images/charla-avatar.png" 
+            alt="charla con Antonio" 
             className="w-full h-full object-cover"
           />
         )}
       </button>
 
-      {/* Ventana de chat */}
+      {/* Ventana de charla */}
       {isOpen && (
         <div className="fixed bottom-20 right-4 w-80 sm:w-96 bg-white rounded-lg shadow-xl z-40 border border-gray-200 flex flex-col max-h-[70vh]">
           <div className="p-4 bg-blue-500 text-white rounded-t-lg flex justify-between items-center">
-            <h3 className="font-medium">Chat con Antonio</h3>
+            <h3 className="font-medium">charla con Antonio</h3>
             <button 
               onClick={() => setIsOpen(false)}
               className="text-white p-1 rounded-full hover:bg-blue-600"
@@ -103,16 +103,16 @@ const FloatingButton = () => {
             </button>
           </div>
 
-          {/* Historial de chat */}
+          {/* Historial de charla */}
           <div className="flex-1 p-4 overflow-y-auto min-h-[200px] max-h-[50vh]">
-            {chatHistory.length === 0 ? (
+            {charlaHistory.length === 0 ? (
               <div className="text-center text-gray-500 py-8">
                 <Bot className="mx-auto mb-2" size={24} />
                 <p>Hola, ¿en qué puedo ayudarte?</p>
               </div>
             ) : (
               <div className="space-y-4">
-                {chatHistory.map((message, index) => (
+                {charlaHistory.map((message, index) => (
                   <div 
                     key={index} 
                     className={`flex ${message.isUser ? 'justify-end' : 'justify-start'}`}

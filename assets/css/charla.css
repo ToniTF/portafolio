@@ -1,5 +1,5 @@
-/* Chat con Gemini AI - Estilos Reutilizables */
-.gemini-chat-container {
+/* charla con Gemini AI - Estilos Reutilizables */
+.gemini-charla-container {
     width: 33.33vw;
     position: fixed;
     top: 120px;
@@ -17,11 +17,11 @@
     flex-direction: column;
 }
 
-.gemini-chat-container.show {
+.gemini-charla-container.show {
     right: 0;
 }
 
-.chat-toggle-btn {
+.charla-toggle-btn {
     position: fixed;
     top: 120px;
     right: 20px;
@@ -38,16 +38,16 @@
     transition: all 0.3s ease;
 }
 
-.chat-toggle-btn:hover {
+.charla-toggle-btn:hover {
     background: #2980b9;
     transform: scale(1.1);
 }
 
-.chat-toggle-btn.chat-open {
+.charla-toggle-btn.charla-open {
     right: 33.33vw;
 }
 
-.chat-messages {
+.charla-messages {
     height: 420px;
     overflow-y: auto;
     border: 2px solid var(--border-color);
@@ -58,7 +58,7 @@
     flex: 1;
 }
 
-.chat-header {
+.charla-header {
     text-align: center;
     margin-bottom: 1rem;
     padding-bottom: 0.5rem;
@@ -66,13 +66,13 @@
     flex-shrink: 0;
 }
 
-.chat-header h3 {
+.charla-header h3 {
     color: var(--primary-color);
     margin: 0;
     font-size: 1.3rem;
 }
 
-.chat-input-container {
+.charla-input-container {
     display: flex;
     flex-direction: column;
     gap: 0.8rem;
@@ -84,7 +84,7 @@
     flex-shrink: 0;
 }
 
-.chat-input {
+.charla-input {
     width: 100%;
     padding: 12px 16px;
     border: 2px solid var(--border-color);
@@ -101,7 +101,7 @@
     box-sizing: border-box;
 }
 
-.chat-input:focus {
+.charla-input:focus {
     outline: none;
     border-color: var(--primary-color);
     box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
@@ -110,12 +110,12 @@
     box-shadow: 0 4px 15px rgba(52, 152, 219, 0.2);
 }
 
-.chat-input::placeholder {
+.charla-input::placeholder {
     color: #999;
     font-style: italic;
 }
 
-.chat-btn {
+.charla-btn {
     padding: 12px 20px;
     background-color: var(--primary-color);
     color: white;
@@ -131,11 +131,11 @@
     min-width: 100px;
 }
 
-.chat-btn:hover {
+.charla-btn:hover {
     background-color: #2980b9;
 }
 
-.chat-btn:disabled {
+.charla-btn:disabled {
     background-color: #bdc3c7;
     cursor: not-allowed;
 }
@@ -186,9 +186,9 @@
     border-bottom-left-radius: 4px;
 }
 
-/* Responsive para el chat lateral */
+/* Responsive para el charla lateral */
 @media (max-width: 768px) {
-    .gemini-chat-container {
+    .gemini-charla-container {
         width: 100%;
         right: -100%;
         border-radius: 0;
@@ -196,7 +196,7 @@
         height: 80vh;
     }
     
-    .chat-toggle-btn.chat-open {
+    .charla-toggle-btn.charla-open {
         right: 20px;
     }
 }

@@ -23,15 +23,15 @@ switch ($path) {
             'success' => true,
             'message' => 'API de Google Gemini',
             'endpoints' => [
-                'POST /api/gemini/chat' => 'Interactuar con el modelo de chat',
+                'POST /api/gemini/charla' => 'Interactuar con el modelo de charla',
                 'GET /api/gemini/models' => 'Listar modelos disponibles'
             ]
         ]);
         break;
     
-    case 'chat':
-        // Endpoint de chat
-        require_once __DIR__ . '/gemini/chat.php';
+    case 'charla':
+        // Endpoint de charla
+        require_once __DIR__ . '/gemini/charla.php';
         break;
     
     case 'models':

@@ -1,13 +1,13 @@
-// Chat con Gemini AI - JavaScript Reutilizable
+// charla con Gemini AI - JavaScript Reutilizable
 let isProcessing = false;
-const CHAT_STORAGE_KEY = 'gemini_chat_history';
+const charla_STORAGE_KEY = 'gemini_charla_history';
 
-// Cargar historial del chat al inicializar
-function loadChatHistory() {
-    const savedHistory = sessionStorage.getItem(CHAT_STORAGE_KEY);
+// Cargar historial del charla al inicializar
+function loadcharlaHistory() {
+    const savedHistory = sessionStorage.getItem(charla_STORAGE_KEY);
     if (savedHistory) {
         const messages = JSON.parse(savedHistory);
-        const messagesContainer = document.getElementById('chatMessages');
+        const messagesContainer = document.getElementById('charlaMessages');
         
         // Limpiar mensajes existentes excepto el mensaje de bienvenida
         messagesContainer.innerHTML = '';
@@ -28,11 +28,11 @@ function loadChatHistory() {
 }
 
 // Guardar historial en sessionStorage
-function saveChatHistory() {
-    const messagesContainer = document.getElementById('chatMessages');
+function savecharlaHistory() {
+    const messagesContainer = document.getElementById('charlaMessages');
     const messages = Array.from(messagesContainer.querySelectorAll('.message')).slice(1); // Excluir mensaje de bienvenida
     
-    const chatHistory = messages.map(msg => {
+    const charlaHistory = messages.map(msg => {
         const isUser = msg.classList.contains('user-message');
         const text = msg.innerHTML.replace(/<strong>.*?<\/strong>\s*/, '').replace(/<br>/g, '\n');
         return {
@@ -41,18 +41,18 @@ function saveChatHistory() {
         };
     });
     
-    sessionStorage.setItem(CHAT_STORAGE_KEY, JSON.stringify(chatHistory));
+    sessionStorage.setItem(charla_STORAGE_KEY, JSON.stringify(charlaHistory));
 }
 
-// Limpiar historial del chat (para logout)
-function clearChatHistory() {
-    sessionStorage.removeItem(CHAT_STORAGE_KEY);
+// Limpiar historial del charla (para logout)
+function clearcharlaHistory() {
+    sessionStorage.removeItem(charla_STORAGE_KEY);
 }
 
 function sendMessage() {
     if (isProcessing) return;
     
-    const input = document.getElementById('chatInput');
+    const input = document.getElementById('charlaInput');
     const message = input.value.trim();
     
     if (!message) {
@@ -72,7 +72,7 @@ function sendMessage() {
     const baseUrl = window.location.origin + window.location.pathname.split('/').slice(0, -1).join('/') + '/';
     
     // Enviar petición a Gemini
-    fetch(baseUrl + 'gemini/chat', {
+    fetch(baseUrl + 'gemini/charla', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
@@ -102,12 +102,12 @@ function sendMessage() {
 // Función para agregar mensaje y guardarlo en sessionStorage
 function addMessage(text, type) {
     addMessageToDOM(text, type, true);
-    saveChatHistory();
+    savecharlaHistory();
 }
 
 // Función para agregar mensaje solo al DOM (sin guardar)
 function addMessageToDOM(text, type, scroll = true) {
-    const messagesContainer = document.getElementById('chatMessages');
+    const messagesContainer = document.getElementById('charlaMessages');
     const messageDiv = document.createElement('div');
     messageDiv.className = 'message ' + (type === 'user' ? 'user-message' : 'ai-message');
     
@@ -120,36 +120,36 @@ function addMessageToDOM(text, type, scroll = true) {
     }
 }
 
-// Función para mostrar/ocultar el chat
-function toggleChat() {
-    const chatContainer = document.getElementById('chatContainer');
-    const chatToggle = document.getElementById('chatToggle');
+// Función para mostrar/ocultar el charla
+function togglecharla() {
+    const charlaContainer = document.getElementById('charlaContainer');
+    const charlaToggle = document.getElementById('charlaToggle');
     
-    if (chatContainer.classList.contains('show')) {
-        // Ocultar chat
-        chatContainer.classList.remove('show');
-        chatToggle.classList.remove('chat-open');
-        chatToggle.innerHTML = '💬';
-        chatToggle.title = 'Abrir Chat con Gemini';
+    if (charlaContainer.classList.contains('show')) {
+        // Ocultar charla
+        charlaContainer.classList.remove('show');
+        charlaToggle.classList.remove('charla-open');
+        charlaToggle.innerHTML = '💬';
+        charlaToggle.title = 'Abrir charla con Gemini';
     } else {
-        // Mostrar chat
-        chatContainer.classList.add('show');
-        chatToggle.classList.add('chat-open');
-        chatToggle.innerHTML = '✖️';
-        chatToggle.title = 'Cerrar Chat';
+        // Mostrar charla
+        charlaContainer.classList.add('show');
+        charlaToggle.classList.add('charla-open');
+        charlaToggle.innerHTML = '✖️';
+        charlaToggle.title = 'Cerrar charla';
     }
 }
 
-// Inicializar el chat al cargar la página
+// Inicializar el charla al cargar la página
 document.addEventListener('DOMContentLoaded', function() {
     // Verificar que los elementos existen antes de inicializar
-    if (document.getElementById('chatMessages')) {
-        loadChatHistory();
+    if (document.getElementById('charlaMessages')) {
+        loadcharlaHistory();
         
         // Permitir enviar con Enter (Shift+Enter para nueva línea)
-        const chatInput = document.getElementById('chatInput');
-        if (chatInput) {
-            chatInput.addEventListener('keypress', function(e) {
+        const charlaInput = document.getElementById('charlaInput');
+        if (charlaInput) {
+            charlaInput.addEventListener('keypress', function(e) {
                 if (e.key === 'Enter' && !e.shiftKey && !isProcessing) {
                     e.preventDefault();
                     sendMessage();
@@ -160,4 +160,4 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Exponer función para limpiar historial (será llamada en logout)
-window.clearChatHistory = clearChatHistory;
+window.clearcharlaHistory = clearcharlaHistory;
