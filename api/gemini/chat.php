@@ -8,47 +8,83 @@ require_once __DIR__ . '/GeminiService.php';
 
 // Definir la respuesta como JSON
 header('Content-Type: application/json');
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: POST, GET, OPTIONS');
+header('Access-Control-Allow-Headers: Content-Type');
 
-// Verificar el método de la solicitud
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Obtener el cuerpo de la solicitud como JSON
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    exit(0);
+}
+
+// Capturar cualquier salida para evitar corrupciones en el JSON
+ob_start();
+
+try {
+    // Configuración de API key
+    $apiKey = "AIzaSyCxhPo8HnQ4sA_5Jfc4HZmCuyJWx9CWAfk";
+
+    // Obtener el cuerpo de la solicitud
     $input = json_decode(file_get_contents('php://input'), true);
-    $prompt = isset($input['prompt']) ? $input['prompt'] : '';
+    $prompt = isset($input['prompt']) ? $input['prompt'] : 'Hola, ¿cómo estás?';
+
+    // Cambiar a gemini-1.5-flash que sabemos que funciona
+    $url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=" . $apiKey;
+
+    $data = [
+        'contents' => [
+            [
+                'parts' => [
+                    [
+                        'text' => $prompt
+                    ]
+                ]
+            ]
+        ]
+    ];
+
+    // Inicializar cURL
+    $ch = curl_init($url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_POST, true);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+    curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
+
+    // Ejecutar la solicitud
+    $response = curl_exec($ch);
+    $statusCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    $error = curl_error($ch);
+    curl_close($ch);
+
+    // Limpiar cualquier salida capturada hasta ahora
+    ob_end_clean();
     
-    // Validar que se haya proporcionado un prompt
-    if (empty($prompt)) {
+    if ($statusCode !== 200) {
         echo json_encode([
-            'success' => false,
-            'error' => 'El prompt no puede estar vacío'
+            'error' => "Error de la API de Gemini (HTTP $statusCode): " . ($error ?: substr($response, 0, 500)),
+            'status' => $statusCode
         ]);
-        exit;
+    } else {
+        // Parsear la respuesta
+        $responseData = json_decode($response, true);
+        $text = "";
+        
+        if (isset($responseData['candidates'][0]['content']['parts'][0]['text'])) {
+            $text = $responseData['candidates'][0]['content']['parts'][0]['text'];
+        }
+        
+        echo json_encode([
+            'response' => $text,
+            'status' => $statusCode
+        ]);
     }
+} catch (Exception $e) {
+    // Limpiar cualquier salida capturada hasta ahora
+    ob_end_clean();
     
-    try {
-        // Crear instancia del servicio de Gemini
-        $geminiService = new GeminiService();
-        
-        // Generar respuesta
-        $response = $geminiService->generateText($prompt);
-        
-        // Devolver respuesta exitosa
-        echo json_encode([
-            'success' => true,
-            'response' => $response
-        ]);
-    } catch (Exception $e) {
-        // Manejar errores
-        echo json_encode([
-            'success' => false,
-            'error' => 'Error al procesar la petición: ' . $e->getMessage()
-        ]);
-    }
-} else {
-    // Método no permitido
-    http_response_code(405);
+    // Devolver error como JSON
     echo json_encode([
-        'success' => false,
-        'error' => 'Método no permitido'
+        'error' => "Error en el servidor: " . $e->getMessage(),
+        'status' => 500
     ]);
 }
 ?>

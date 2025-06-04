@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
+import { MessageCircle, X, Send, User, Bot } from 'lucide-react';
 
 const FloatingButton = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -24,116 +25,144 @@ const FloatingButton = () => {
         body: JSON.stringify({ prompt: userPrompt }),
       });
 
-      if (!response.ok) {
-        throw new Error("Error al comunicarse con el servidor");
-      }
-
-      const data = await response.json();
-      console.log("Respuesta de Gemini:", data);
+      // Imprimir la respuesta en texto plano antes de intentar parsearla
+      const rawText = await response.text();
+      console.log("Respuesta cruda:", rawText);
       
-      if (data.success) {
+      // Intentar parsear manualmente para identificar el problema
+      try {
+        const data = JSON.parse(rawText);
+        console.log("Respuesta parseada:", data);
+        
+        // Continuar con el código original...
+        if (data.error) {
+          throw new Error(data.error);
+        }
+        
         // Agregar la respuesta de la IA al historial
-        setChatHistory(prev => [...prev, { text: data.response, isUser: false }]);
-      } else {
-        throw new Error(data.error || "Error desconocido");
+        setChatHistory(prev => [
+          ...prev, 
+          { text: data.response || "Lo siento, no pude generar una respuesta.", isUser: false }
+        ]);
+      } catch (parseError) {
+        console.error("Error al parsear JSON:", parseError);
+        throw new Error(`Error al parsear la respuesta: ${parseError.message}. Texto recibido: ${rawText.substring(0, 100)}...`);
       }
+      
     } catch (error) {
       console.error("Error:", error);
-      setChatHistory(prev => [...prev, { 
-        text: "Lo siento, hubo un problema al procesar tu solicitud.", 
-        isUser: false,
-        isError: true
-      }]);
+      setChatHistory(prev => [
+        ...prev, 
+        { text: `Error: ${error.message}`, isUser: false, isError: true }
+      ]);
     } finally {
       setIsLoading(false);
       setPrompt("");
     }
   };
-  
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (prompt.trim() && !isLoading) {
+    if (prompt.trim()) {
       handleChat(prompt);
     }
   };
-  
-  const handleClick = () => {
-    setIsOpen(!isOpen);
-  };
 
   return (
-    <div className="fixed bottom-4 right-4 z-50">
-      {isOpen ? (
-        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-xl w-80 h-96 flex flex-col overflow-hidden border border-gray-200 dark:border-gray-700">
-          <div className="bg-blue-500 dark:bg-blue-600 text-white p-3 flex justify-between items-center">
-            <h3 className="font-medium">Chat con Gemini</h3>
+    <>
+      {/* Botón flotante */}
+      <button
+        onClick={() => setIsOpen(true)}
+        className={`fixed bottom-4 right-4 z-50 p-4 rounded-full shadow-lg transition-colors duration-300 ${
+          isOpen ? 'bg-red-500 hover:bg-red-600' : 'bg-blue-500 hover:bg-blue-600'
+        } text-white`}
+        aria-label={isOpen ? "Cerrar chat" : "Abrir chat"}
+      >
+        {isOpen ? <X size={24} /> : <MessageCircle size={24} />}
+      </button>
+
+      {/* Ventana de chat */}
+      {isOpen && (
+        <div className="fixed bottom-20 right-4 w-80 sm:w-96 bg-white rounded-lg shadow-xl z-40 border border-gray-200 flex flex-col max-h-[70vh]">
+          <div className="p-4 bg-blue-500 text-white rounded-t-lg flex justify-between items-center">
+            <h3 className="font-medium">Chat con Gemini Flash AI</h3>
             <button 
-              onClick={handleClick}
-              className="text-white hover:text-gray-200"
+              onClick={() => setIsOpen(false)}
+              className="text-white p-1 rounded-full hover:bg-blue-600"
             >
-              ×
+              <X size={18} />
             </button>
           </div>
-          
-          <div className="flex-1 p-3 overflow-y-auto">
+
+          {/* Historial de chat */}
+          <div className="flex-1 p-4 overflow-y-auto min-h-[200px] max-h-[50vh]">
             {chatHistory.length === 0 ? (
-              <div className="text-center text-gray-500 dark:text-gray-400 mt-10">
-                <p>👋 ¡Hola! Soy Gemini.</p>
-                <p className="mt-2">¿En qué puedo ayudarte hoy?</p>
+              <div className="text-center text-gray-500 py-8">
+                <Bot className="mx-auto mb-2" size={24} />
+                <p>Hola, ¿en qué puedo ayudarte?</p>
               </div>
             ) : (
-              <div className="space-y-3">
+              <div className="space-y-4">
                 {chatHistory.map((message, index) => (
                   <div 
                     key={index} 
-                    className={`p-2 rounded-lg max-w-[80%] ${
-                      message.isUser 
-                        ? 'ml-auto bg-blue-500 text-white' 
-                        : 'mr-auto bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-white'
-                    } ${message.isError ? 'bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200' : ''}`}
+                    className={`flex ${message.isUser ? 'justify-end' : 'justify-start'}`}
                   >
-                    {message.text}
+                    <div 
+                      className={`max-w-[80%] p-3 rounded-lg ${
+                        message.isUser 
+                          ? 'bg-blue-500 text-white rounded-br-none' 
+                          : message.isError
+                            ? 'bg-red-100 text-red-800 rounded-bl-none'
+                            : 'bg-gray-100 text-gray-800 rounded-bl-none'
+                      }`}
+                    >
+                      {message.text}
+                    </div>
                   </div>
                 ))}
                 {isLoading && (
-                  <div className="flex space-x-1 justify-center p-2">
-                    <div className="w-2 h-2 bg-gray-300 dark:bg-gray-600 rounded-full animate-bounce"></div>
-                    <div className="w-2 h-2 bg-gray-300 dark:bg-gray-600 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
-                    <div className="w-2 h-2 bg-gray-300 dark:bg-gray-600 rounded-full animate-bounce" style={{ animationDelay: '0.4s' }}></div>
+                  <div className="flex justify-start">
+                    <div className="bg-gray-100 p-3 rounded-lg rounded-bl-none max-w-[80%]">
+                      <div className="flex space-x-2">
+                        <div className="w-2 h-2 rounded-full bg-gray-400 animate-bounce"></div>
+                        <div className="w-2 h-2 rounded-full bg-gray-400 animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+                        <div className="w-2 h-2 rounded-full bg-gray-400 animate-bounce" style={{ animationDelay: '0.4s' }}></div>
+                      </div>
+                    </div>
                   </div>
                 )}
               </div>
             )}
           </div>
-          
-          <form onSubmit={handleSubmit} className="p-3 border-t border-gray-200 dark:border-gray-700 flex">
-            <input
-              type="text"
-              value={prompt}
-              onChange={(e) => setPrompt(e.target.value)}
-              className="flex-1 p-2 border border-gray-300 dark:border-gray-600 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white"
-              placeholder="Escribe tu mensaje..."
-              disabled={isLoading}
-            />
-            <button
-              type="submit"
-              className="bg-blue-500 hover:bg-blue-600 text-white p-2 rounded-r-lg disabled:opacity-50"
-              disabled={!prompt.trim() || isLoading}
-            >
-              Enviar
-            </button>
+
+          {/* Formulario de entrada */}
+          <form onSubmit={handleSubmit} className="border-t border-gray-200 p-4">
+            <div className="flex items-center space-x-2">
+              <input
+                type="text"
+                value={prompt}
+                onChange={(e) => setPrompt(e.target.value)}
+                placeholder="Escribe tu mensaje..."
+                className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                disabled={isLoading}
+              />
+              <button
+                type="submit"
+                disabled={isLoading || !prompt.trim()}
+                className={`p-2 rounded-lg ${
+                  isLoading || !prompt.trim() 
+                    ? 'bg-gray-300 text-gray-500 cursor-not-allowed' 
+                    : 'bg-blue-500 text-white hover:bg-blue-600'
+                }`}
+              >
+                <Send size={20} />
+              </button>
+            </div>
           </form>
         </div>
-      ) : (
-        <button
-          onClick={handleClick}
-          className="bg-blue-500 text-white p-4 rounded-full shadow-lg hover:bg-blue-600 transition"
-          title="Hablar con Gemini"
-        >
-          💬
-        </button>
       )}
-    </div>
+    </>
   );
 };
 
