@@ -10,6 +10,7 @@ import Projects from './pages/Projects'
 import ProjectDetail from './pages/ProjectDetail'
 import Contact from './pages/Contact'
 import AdminPanel from './pages/AdminPanel'
+import FloatingButton from './components/FloatingButton'
 import './App.css'
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
             </Routes>
           </main>
           <Footer />
+          <FloatingButton />
         </div>
       </ApiProvider>
     </ThemeProvider>
