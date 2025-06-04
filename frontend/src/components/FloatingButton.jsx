@@ -6,7 +6,6 @@ const FloatingButton = () => {
   const [prompt, setPrompt] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [charlaHistory, setcharlaHistory] = useState([]);
-
   const handlecharla = async (userPrompt) => {
     try {
       setIsLoading(true);
@@ -23,9 +22,7 @@ const FloatingButton = () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ prompt: userPrompt }),
-      });
-
-      // Imprimir la respuesta en texto plano antes de intentar parsearla
+      });      // Imprimir la respuesta en texto plano antes de intentar parsearla
       const rawText = await response.text();
       console.log("Respuesta cruda:", rawText);
       
@@ -38,22 +35,39 @@ const FloatingButton = () => {
         if (data.error) {
           throw new Error(data.error);
         }
+          // Verificar si la respuesta está vacía o no es relevante
+        const responseText = data.response || "";
+        if (responseText.trim() === "") {
+          throw new Error("No se pudo obtener una respuesta relevante.");
+        }
         
-        // Agregar la respuesta de la IA al historial
-        setcharlaHistory(prev => [
-          ...prev, 
-          { text: data.response || "Lo siento, no pude generar una respuesta.", isUser: false }
-        ]);
-      } catch (parseError) {
+        // Si la respuesta contiene un mensaje de rechazo específico, mostrarlo claramente
+        if (responseText.includes("Lo siento, solo puedo proporcionar información sobre Antonio Troitiño")) {
+          setcharlaHistory(prev => [
+            ...prev, 
+            { 
+              text: "Lo siento, solo puedo responder preguntas sobre Antonio Troitiño y su trabajo como desarrollador web. ¿En qué aspecto de su perfil profesional puedo ayudarte?", 
+              isUser: false 
+            }
+          ]);
+        } else {          // Agregar la respuesta de la IA al historial
+          setcharlaHistory(prev => [
+            ...prev, 
+            { text: responseText, isUser: false }
+          ]);
+        }      } catch (parseError) {
         console.error("Error al parsear JSON:", parseError);
         throw new Error(`Error al parsear la respuesta: ${parseError.message}. Texto recibido: ${rawText.substring(0, 100)}...`);
       }
-      
     } catch (error) {
       console.error("Error:", error);
       setcharlaHistory(prev => [
         ...prev, 
-        { text: `Error: ${error.message}`, isUser: false, isError: true }
+        { 
+          text: "Lo siento, ha ocurrido un error al conectar con el asistente. Por favor, intenta de nuevo o contacta con Antonio directamente.", 
+          isUser: false, 
+          isError: true 
+        }
       ]);
     } finally {
       setIsLoading(false);
@@ -104,11 +118,10 @@ const FloatingButton = () => {
           </div>
 
           {/* Historial de charla */}
-          <div className="flex-1 p-4 overflow-y-auto min-h-[200px] max-h-[50vh]">
-            {charlaHistory.length === 0 ? (
+          <div className="flex-1 p-4 overflow-y-auto min-h-[200px] max-h-[50vh]">            {charlaHistory.length === 0 ? (
               <div className="text-center text-gray-500 py-8">
                 <Bot className="mx-auto mb-2" size={24} />
-                <p>Hola, ¿en qué puedo ayudarte?</p>
+                <p>Hola, soy el asistente virtual de Antonio. Puedo responder a tus preguntas sobre su perfil profesional, habilidades y proyectos.</p>
               </div>
             ) : (
               <div className="space-y-4">

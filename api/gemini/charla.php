@@ -27,18 +27,55 @@ try {
     $input = json_decode(file_get_contents('php://input'), true);
     $prompt = isset($input['prompt']) ? $input['prompt'] : 'Hola, ¿cómo estás?';
 
+    // Crear instancia del servicio de Gemini con el contexto
+    $geminiService = new GeminiService($apiKey, "gemini-1.5-flash");
+    
+    // Configurar opciones
+    $options = [
+        'temperature' => 0.7,
+        'maxOutputTokens' => 800,
+        'topP' => 0.8,
+        'topK' => 40
+    ];
+    
+    // Usar el servicio para generar texto con el contexto
+    try {
+        $response = $geminiService->generateText($prompt, $options);
+        
+        // Limpiar cualquier salida capturada
+        ob_end_clean();
+        
+        echo json_encode([
+            'response' => $response,
+            'status' => 200
+        ]);
+        exit;
+    } catch (Exception $serviceError) {
+        // Si falla el servicio, intentamos el método directo como fallback
+        error_log("Error en GeminiService: " . $serviceError->getMessage() . ". Intentando método directo.");
+    }    // Método directo como fallback si el servicio falla
     // Cambiar a gemini-1.5-flash que sabemos que funciona
     $url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=" . $apiKey;
+    
+    // Obtener el contexto base de GeminiService para usarlo directamente
+    $geminiServiceInstance = new GeminiService($apiKey);
+    $contextualizedPrompt = $geminiServiceInstance->baseContext . "\n\nConsulta del usuario: " . $prompt;
 
     $data = [
         'contents' => [
             [
                 'parts' => [
                     [
-                        'text' => $prompt
+                        'text' => $contextualizedPrompt
                     ]
                 ]
             ]
+        ],
+        'generationConfig' => [
+            'temperature' => 0.7,
+            'maxOutputTokens' => 800,
+            'topP' => 0.8,
+            'topK' => 40
         ]
     ];
 
