@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { MessageCircle, X, Send, User, Bot } from 'lucide-react';
+import { X, Send, User, Bot } from 'lucide-react';
 
 const FloatingButton = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -70,22 +70,31 @@ const FloatingButton = () => {
 
   return (
     <>
-      {/* Botón flotante */}
+      {/* Botón flotante con imagen personalizada */}
       <button
         onClick={() => setIsOpen(true)}
-        className={`fixed bottom-4 right-4 z-50 p-4 rounded-full shadow-lg transition-colors duration-300 ${
-          isOpen ? 'bg-red-500 hover:bg-red-600' : 'bg-blue-500 hover:bg-blue-600'
-        } text-white`}
+        className={`fixed bottom-4 right-4 z-50 rounded-full shadow-lg transition-colors duration-300 overflow-hidden ${
+          isOpen ? 'bg-red-500 p-2' : 'bg-white p-0' 
+        }`}
         aria-label={isOpen ? "Cerrar chat" : "Abrir chat"}
+        style={{ width: isOpen ? '40px' : '50px', height: isOpen ? '40px' : '50px' }}
       >
-        {isOpen ? <X size={24} /> : <MessageCircle size={24} />}
+        {isOpen ? (
+          <X size={24} className="text-white" />
+        ) : (
+          <img 
+            src="/assets/images/chat-avatar.png" 
+            alt="Chat con Antonio" 
+            className="w-full h-full object-cover"
+          />
+        )}
       </button>
 
       {/* Ventana de chat */}
       {isOpen && (
         <div className="fixed bottom-20 right-4 w-80 sm:w-96 bg-white rounded-lg shadow-xl z-40 border border-gray-200 flex flex-col max-h-[70vh]">
           <div className="p-4 bg-blue-500 text-white rounded-t-lg flex justify-between items-center">
-            <h3 className="font-medium">Chat con Gemini Flash AI</h3>
+            <h3 className="font-medium">Chat con Antonio</h3>
             <button 
               onClick={() => setIsOpen(false)}
               className="text-white p-1 rounded-full hover:bg-blue-600"

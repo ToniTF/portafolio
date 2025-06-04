@@ -217,14 +217,14 @@ const Home = () => {
               >
                 <Github size={24} />
               </a>
-              <a
+              {/*<a
                 href="https://linkedin.com/in/antonio-troitino"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors transform hover:scale-110"
               >
                 <Linkedin size={24} />
-              </a>
+              </a>*/}
               <a
                 href="mailto:contacto@antoniotroitino.com"
                 className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors transform hover:scale-110"
