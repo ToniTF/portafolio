@@ -80,7 +80,7 @@ const Navbar = () => {
             })}
             
             {/* Theme toggle */}
-            {/* <motion.button
+            <motion.button
               onClick={toggleTheme}
               className="p-2 rounded-lg text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-gray-800 transition-all duration-200 ml-2"
               whileHover={{ scale: 1.05 }}
@@ -109,7 +109,7 @@ const Navbar = () => {
                   </motion.div>
                 )}
               </AnimatePresence>
-            </motion.button> */}
+            </motion.button>
 
             {/* Admin access */}
             <Link

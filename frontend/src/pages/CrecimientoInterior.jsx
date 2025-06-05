@@ -261,54 +261,54 @@ const CrecimientoInterior = () => {
             </p>
           </motion.div>
 
+          {/* Tarjetas de Servicios */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {servicios.map((servicio, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 50 }}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <Card className="p-6 h-full hover:shadow-lg transition-shadow duration-300">
-                  <div className="flex items-center space-x-3 mb-4">
-                    <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-blue-500 rounded-lg flex items-center justify-center">
-                      <Heart className="text-white" size={20} />
+                <Card className="p-6 h-full dark:border-gray-700">
+                  <div className="flex items-center mb-4">
+                    <div className="w-12 h-12 bg-purple-100 dark:bg-purple-900 rounded-full flex items-center justify-center mr-4">
+                      <Sparkles className="text-purple-600 dark:text-purple-400" size={24} />
                     </div>
-                    <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
+                    <h3 className="text-xl font-bold text-gray-900 dark:text-white">
                       {servicio.name}
                     </h3>
                   </div>
                   
-                  <p className="text-gray-600 dark:text-gray-400 mb-4">
+                  <p className="text-gray-600 dark:text-gray-300 mb-6">
                     {servicio.description}
                   </p>
-
-                  <div className="space-y-2 text-sm text-gray-500 dark:text-gray-400 mb-4">
-                    <div className="flex items-center space-x-2">
-                      <Clock size={16} />
-                      <span>Duración: {servicio.duration}</span>
+                  
+                  <div className="space-y-2 mb-6">
+                    <div className="flex items-center text-sm text-gray-500 dark:text-gray-400">
+                      <Clock className="w-4 h-4 mr-2" />
+                      <span><strong>Duración:</strong> {servicio.duration}</span>
                     </div>
-                    
-                    <div className="flex items-center space-x-2">
-                      <MapPin size={16} />
-                      <span>Modalidad: {servicio.modality}</span>
+                    <div className="flex items-center text-sm text-gray-500 dark:text-gray-400">
+                      <MapPin className="w-4 h-4 mr-2" />
+                      <span><strong>Modalidad:</strong> {servicio.modality}</span>
                     </div>
-                    
-                    <div className="flex items-center space-x-2">
-                      <Calendar size={16} />
-                      <span>Frecuencia: {servicio.frequency}</span>
+                    <div className="flex items-center text-sm text-gray-500 dark:text-gray-400">
+                      <Calendar className="w-4 h-4 mr-2" />
+                      <span><strong>Frecuencia:</strong> {servicio.frequency}</span>
                     </div>
                   </div>
-
-                  <div className="border-t border-gray-200 dark:border-gray-700 pt-4">
-                    <p className="text-sm text-gray-600 dark:text-gray-400">
-                      <strong>Incluye:</strong> {servicio.includes}
+                  
+                  <div className="bg-purple-50 dark:bg-purple-900/20 p-4 rounded-lg">
+                    <h4 className="font-semibold text-purple-600 dark:text-purple-400 mb-2">Incluye:</h4>
+                    <p className="text-gray-600 dark:text-gray-300 text-sm">
+                      {servicio.includes}
                     </p>
                   </div>
-
-                  <Button className="w-full mt-4 bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600">
-                    Más información
+                  
+                  <Button className="mt-6 w-full" variant="secondary" as="a" href="#contacto">
+                    Reservar Sesión
                   </Button>
                 </Card>
               </motion.div>
@@ -328,84 +328,281 @@ const CrecimientoInterior = () => {
             viewport={{ once: true }}
           >
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-              Certificaciones y <span className="text-purple-600 dark:text-purple-400">Formación</span>
-            </h2>            <p className="text-lg text-gray-600 dark:text-gray-400">
-              Mi preparación y certificaciones en el campo del mindfulness y desarrollo personal.
+              <span className="text-purple-600 dark:text-purple-400">Certificaciones</span> y Formación
+            </h2>
+            <p className="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+              Mi compromiso con la excelencia y el desarrollo profesional continuo.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {certificaciones.map((cert, index) => (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {certificaciones.map((certificacion, index) => (
               <motion.div
                 key={index}
-                className="flex items-center space-x-4 p-4 bg-gray-50 dark:bg-gray-700 rounded-lg"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <div className="flex-shrink-0">
-                  <Award className="text-purple-500" size={24} />
-                </div>
-                <p className="text-gray-900 dark:text-white font-medium">
-                  {cert}
-                </p>
+                <Card className="p-6 h-full border-l-4 border-purple-500 dark:border-purple-400">
+                  <div className="flex items-center mb-4">
+                    <div className="w-10 h-10 bg-purple-100 dark:bg-purple-900 rounded-full flex items-center justify-center mr-4">
+                      <Award className="text-purple-600 dark:text-purple-400" size={20} />
+                    </div>
+                    <h3 className="font-semibold text-gray-900 dark:text-white">
+                      {certificacion}
+                    </h3>
+                  </div>
+                </Card>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA Final */}
-      <section id="contacto" className="py-20 bg-gradient-to-br from-purple-600 via-blue-600 to-teal-600">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      {/* Testimonios */}
+      <section className="py-16 bg-white dark:bg-gray-800">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
-            initial={{ opacity: 0, y: 50 }}
+            className="text-center mb-12"
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              ¿Listo para tu Transformación?
-            </h2>            <p className="text-xl text-purple-100 mb-8 max-w-3xl mx-auto">
-              Comienza tu viaje hacia el equilibrio y la presencia consciente. 
-              Estoy aquí para acompañarte en este proceso de transformación a través del mindfulness.
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+              <span className="text-purple-600 dark:text-purple-400">Testimonios</span> y Experiencias
+            </h2>
+            <p className="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+              Descubre cómo las prácticas de mindfulness han transformado la vida de mis clientes.
             </p>
-            
-            <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6">
-              <motion.a
-                href="mailto:antonio@troitino.dev"
-                className="bg-white bg-opacity-20 hover:bg-opacity-30 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 flex items-center space-x-2"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Mail size={20} />
-                <span>Enviar Email</span>
-              </motion.a>
-              
-              <motion.a
-                href="tel:+34XXXXXXXXX"
-                className="bg-yellow-400 hover:bg-yellow-500 text-purple-900 px-6 py-3 rounded-lg font-semibold transition-all duration-300 flex items-center space-x-2"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Phone size={20} />
-                <span>Llamar Ahora</span>
-              </motion.a>
-              
-              <motion.a
-                href="https://wa.me/34XXXXXXXXX"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 flex items-center space-x-2"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Users size={20} />
-                <span>WhatsApp</span>
-              </motion.a>
-            </div>
           </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Testimonio 1 */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.1 }}
+              viewport={{ once: true }}
+            >
+              <Card className="p-6 h-full bg-gradient-to-br from-purple-50 to-white dark:from-purple-900/20 dark:to-gray-800 border-none">
+                <div className="flex justify-center mb-6">
+                  <div className="flex items-center justify-center space-x-1">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-5 h-5 text-yellow-400" fill="#facc15" />
+                    ))}
+                  </div>
+                </div>
+                <p className="text-gray-600 dark:text-gray-300 text-center italic mb-6">
+                  "Las sesiones de Reiki con Antonio han sido transformadoras. He experimentado una profunda 
+                  sensación de paz y claridad mental que me ha ayudado a enfrentar desafíos personales."
+                </p>
+                <div className="flex items-center justify-center">
+                  <div className="text-center">
+                    <h4 className="font-semibold text-gray-900 dark:text-white">María G.</h4>
+                    <p className="text-sm text-gray-500 dark:text-gray-400">Profesional de marketing</p>
+                  </div>
+                </div>
+              </Card>
+            </motion.div>
+
+            {/* Testimonio 2 */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
+              <Card className="p-6 h-full bg-gradient-to-br from-purple-50 to-white dark:from-purple-900/20 dark:to-gray-800 border-none">
+                <div className="flex justify-center mb-6">
+                  <div className="flex items-center justify-center space-x-1">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-5 h-5 text-yellow-400" fill="#facc15" />
+                    ))}
+                  </div>
+                </div>
+                <p className="text-gray-600 dark:text-gray-300 text-center italic mb-6">
+                  "El coaching con Antonio me ha permitido descubrir mi verdadero potencial. Sus técnicas de 
+                  mindfulness integradas en el proceso de coaching son simplemente poderosas."
+                </p>
+                <div className="flex items-center justify-center">
+                  <div className="text-center">
+                    <h4 className="font-semibold text-gray-900 dark:text-white">Juan P.</h4>
+                    <p className="text-sm text-gray-500 dark:text-gray-400">Emprendedor</p>
+                  </div>
+                </div>
+              </Card>
+            </motion.div>
+
+            {/* Testimonio 3 */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              viewport={{ once: true }}
+            >
+              <Card className="p-6 h-full bg-gradient-to-br from-purple-50 to-white dark:from-purple-900/20 dark:to-gray-800 border-none">
+                <div className="flex justify-center mb-6">
+                  <div className="flex items-center justify-center space-x-1">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-5 h-5 text-yellow-400" fill="#facc15" />
+                    ))}
+                  </div>
+                </div>
+                <p className="text-gray-600 dark:text-gray-300 text-center italic mb-6">
+                  "Participar en los talleres de mindfulness ha sido una de las mejores decisiones que he tomado. 
+                  La guía de Antonio y las técnicas aprendidas han cambiado mi perspectiva de la vida."
+                </p>
+                <div className="flex items-center justify-center">
+                  <div className="text-center">
+                    <h4 className="font-semibold text-gray-900 dark:text-white">Laura R.</h4>
+                    <p className="text-sm text-gray-500 dark:text-gray-400">Diseñadora gráfica</p>
+                  </div>
+                </div>
+              </Card>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contacto y Reservas */}
+      <section id="contacto" className="py-16 bg-gray-50 dark:bg-gray-900">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            className="text-center mb-12"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+              Reserva tu <span className="text-purple-600 dark:text-purple-400">Sesión</span>
+            </h2>
+            <p className="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+              Contáctame para programar una consulta inicial gratuita o reservar una sesión.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
+            <div className="lg:col-span-2">
+              <Card className="p-6 h-full">
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-6">
+                  Información de Contacto
+                </h3>
+                
+                <div className="space-y-4 mb-8">
+                  <div className="flex items-center">
+                    <div className="w-10 h-10 bg-purple-100 dark:bg-purple-900 rounded-full flex items-center justify-center mr-4">
+                      <MapPin className="text-purple-600 dark:text-purple-400" size={20} />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-gray-900 dark:text-white">Ubicación</h4>
+                      <p className="text-gray-600 dark:text-gray-400">Sesiones online y presenciales en Madrid</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-center">
+                    <div className="w-10 h-10 bg-purple-100 dark:bg-purple-900 rounded-full flex items-center justify-center mr-4">
+                      <Mail className="text-purple-600 dark:text-purple-400" size={20} />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-gray-900 dark:text-white">Email</h4>
+                      <p className="text-purple-600 dark:text-purple-400">
+                        <a href="mailto:contacto@antoniotroitino.com">contacto@antoniotroitino.com</a>
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-center">
+                    <div className="w-10 h-10 bg-purple-100 dark:bg-purple-900 rounded-full flex items-center justify-center mr-4">
+                      <Phone className="text-purple-600 dark:text-purple-400" size={20} />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-gray-900 dark:text-white">Teléfono</h4>
+                      <p className="text-purple-600 dark:text-purple-400">
+                        <a href="tel:+34600000000">+34 600 000 000</a>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="border-t border-gray-200 dark:border-gray-700 pt-6">
+                  <h4 className="font-semibold text-gray-900 dark:text-white mb-4">Horario de Atención</h4>
+                  <div className="space-y-2 text-gray-600 dark:text-gray-400">
+                    <p>Lunes a Viernes: 10:00 - 20:00</p>
+                    <p>Sábados: 10:00 - 14:00</p>
+                    <p>Domingos: Cerrado</p>
+                  </div>
+                </div>
+              </Card>
+            </div>
+
+            <div className="lg:col-span-3">
+              <Card className="p-6 h-full">
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-6">
+                  Reserva una Sesión
+                </h3>
+                
+                <p className="text-gray-600 dark:text-gray-400 mb-6">
+                  Completa el siguiente formulario para reservar tu sesión. Me pondré en contacto contigo 
+                  para confirmar la cita y proporcionarte más detalles.
+                </p>
+                
+                {/* Formulario de Reserva */}
+                <form action="#" method="POST" className="space-y-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label htmlFor="nombre" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                        Nombre
+                      </label>
+                      <input
+                        type="text"
+                        name="nombre"
+                        id="nombre"
+                        required
+                        className="mt-1 block w-full px-4 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-md shadow-sm focus:ring-2 focus:ring-purple-600 dark:focus:ring-purple-400 focus:outline-none"
+                        placeholder="Tu nombre"
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                        Email
+                      </label>
+                      <input
+                        type="email"
+                        name="email"
+                        id="email"
+                        required
+                        className="mt-1 block w-full px-4 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-md shadow-sm focus:ring-2 focus:ring-purple-600 dark:focus:ring-purple-400 focus:outline-none"
+                        placeholder="Tu email"
+                      />
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <label htmlFor="mensaje" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                      Mensaje
+                    </label>
+                    <textarea
+                      name="mensaje"
+                      id="mensaje"
+                      rows="4"
+                      required
+                      className="mt-1 block w-full px-4 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-md shadow-sm focus:ring-2 focus:ring-purple-600 dark:focus:ring-purple-400 focus:outline-none"
+                      placeholder="Escribe tu mensaje o consulta"
+                    ></textarea>
+                  </div>
+                  
+                  <div className="flex items-center justify-end">
+                    <Button type="submit" className="w-full sm:w-auto" variant="primary">
+                      Reservar Sesión
+                    </Button>
+                  </div>
+                </form>
+              </Card>
+            </div>
+          </div>
         </div>
       </section>
     </div>

@@ -32,9 +32,8 @@ const Home = () => {
   const scrollToSection = (id) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
   }
-
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-purple-900">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-purple-900 transition-colors duration-300">
       {/* Hero Section */}
       <section className="min-h-screen relative overflow-hidden">
         {/* Animated background elements */}
@@ -145,8 +144,7 @@ const Home = () => {
                   Troitiño
                 </motion.span>
               </h1>
-              
-              <motion.div
+                <motion.div
                 className="flex flex-wrap items-center justify-center gap-4 mb-6"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -244,10 +242,8 @@ const Home = () => {
             </motion.button>
           </div>
         </motion.div>
-      </section>
-
-      {/* About Section Preview */}
-      <section id="about" className="py-20 bg-white dark:bg-gray-800">
+      </section>      {/* About Section Preview */}
+      <section id="about" className="py-20 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             className="text-center mb-16"
@@ -354,12 +350,11 @@ const Home = () => {
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                       <div className="absolute bottom-4 left-4 right-4 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
                         <div className="flex space-x-2">
-                          {project.github && (
-                            <a
+                          {project.github && (                            <a
                               href={project.github}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="p-2 bg-white rounded-full text-gray-800 hover:bg-gray-100 transition-colors duration-300"
+                              className="p-2 bg-white dark:bg-gray-700 rounded-full text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors duration-300"
                             >
                               <Github size={16} />
                             </a>
@@ -369,7 +364,7 @@ const Home = () => {
                               href={project.live_url}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="p-2 bg-white rounded-full text-gray-800 hover:bg-gray-100 transition-colors duration-300"
+                              className="p-2 bg-white dark:bg-gray-700 rounded-full text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors duration-300"
                             >
                               <ExternalLink size={16} />
                             </a>

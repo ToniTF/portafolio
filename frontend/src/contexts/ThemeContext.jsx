@@ -18,12 +18,18 @@ export const ThemeProvider = ({ children }) => {
     
     return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
   })
-
   useEffect(() => {
     // Aplicar el tema al documentElement
     const root = window.document.documentElement
-    root.classList.remove('light', 'dark')
-    root.classList.add(theme)
+    
+    // Añadir una pequeña transición antes de cambiar clases para suavizar la transición
+    const applyTheme = () => {
+      root.classList.remove('light', 'dark')
+      root.classList.add(theme)
+    }
+    
+    // Aplicar inmediatamente para evitar pestañeo
+    applyTheme()
     
     // Guardar preferencia
     localStorage.setItem('theme', theme)

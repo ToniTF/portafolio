@@ -33,32 +33,29 @@ const Contact = () => {
       description: 'Sesiones presenciales y remotas'
     }
   ]
-
   const socialLinks = [
     {
       name: 'GitHub',
       icon: Github,
       url: 'https://github.com/tonitf',
-      color: 'hover:text-gray-800'
+      color: 'hover:text-gray-800 dark:hover:text-gray-300'
     },
     {
       name: 'LinkedIn',
       icon: Linkedin,
       url: 'https://linkedin.com/in/antonio-troitino',
-      color: 'hover:text-blue-600'
+      color: 'hover:text-blue-600 dark:hover:text-blue-400'
     },
     {
       name: 'Instagram',
       icon: Instagram,
       url: 'https://instagram.com/antonio.troitino',
-      color: 'hover:text-pink-600'
-    }
-  ]
+      color: 'hover:text-pink-600 dark:hover:text-pink-400'
+    }]
 
-  return (
-    <div className="min-h-screen pt-16 bg-gray-50">
+  return (    <div className="min-h-screen pt-16 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-primary">
+      <section className="py-20 bg-gradient-primary dark:bg-gradient-to-r dark:from-blue-900 dark:to-indigo-900 shadow-lg dark:shadow-blue-900/20 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -87,31 +84,29 @@ const Contact = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
-              >
-                <h2 className="text-2xl font-semibold text-gray-900 mb-6">
+              >                <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">
                   Información de Contacto
                 </h2>
                 
                 <div className="space-y-4">
                   {contactInfo.map((item, index) => {
                     const IconComponent = item.icon
-                    const content = (
-                      <motion.div
-                        className="flex items-start space-x-4 p-4 bg-white rounded-xl shadow-lg hover-lift"
+                    const content = (                      <motion.div
+                        className="flex items-start space-x-4 p-4 bg-white dark:bg-gray-800 rounded-xl shadow-lg dark:shadow-gray-900/30 hover-lift transition-all duration-300"
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: index * 0.1 }}
                         viewport={{ once: true }}
                       >
                         <div className="flex-shrink-0">
-                          <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
-                            <IconComponent className="text-blue-600" size={20} />
+                          <div className="w-10 h-10 bg-blue-100 dark:bg-blue-900 rounded-lg flex items-center justify-center">
+                            <IconComponent className="text-blue-600 dark:text-blue-400" size={20} />
                           </div>
                         </div>
                         <div>
-                          <h3 className="font-semibold text-gray-900">{item.title}</h3>
-                          <p className="text-blue-600 font-medium">{item.value}</p>
-                          <p className="text-sm text-gray-500">{item.description}</p>
+                          <h3 className="font-semibold text-gray-900 dark:text-white">{item.title}</h3>
+                          <p className="text-blue-600 dark:text-blue-400 font-medium">{item.value}</p>
+                          <p className="text-sm text-gray-500 dark:text-gray-400">{item.description}</p>
                         </div>
                       </motion.div>
                     )
@@ -129,15 +124,14 @@ const Contact = () => {
                 </div>
               </motion.div>
 
-              {/* Redes sociales */}
-              <motion.div
-                className="bg-white rounded-xl p-6 shadow-lg"
+              {/* Redes sociales */}              <motion.div
+                className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg dark:shadow-gray-900/30 transition-all duration-300"
                 initial={{ opacity: 0, x: -50 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: 0.3 }}
                 viewport={{ once: true }}
               >
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
                   Sígueme en Redes
                 </h3>
                 
@@ -150,7 +144,7 @@ const Contact = () => {
                         href={social.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className={`p-3 bg-gray-100 rounded-lg text-gray-600 transition-colors duration-300 ${social.color}`}
+                        className={`p-3 bg-gray-100 dark:bg-gray-700 rounded-lg text-gray-600 dark:text-gray-300 transition-colors duration-300 ${social.color}`}
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.9 }}
                       >

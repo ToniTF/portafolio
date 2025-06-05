@@ -55,13 +55,12 @@ const Projects = () => {
       <div className="min-h-screen flex items-center justify-center pt-16">
         <div className="loading-spinner"></div>
       </div>
-    )
-  }
+    )  }
 
   return (
-    <div className="min-h-screen pt-16 bg-gray-50">
+    <div className="min-h-screen pt-16 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
       {/* Header */}
-      <section className="py-20 bg-gradient-primary">
+      <section className="py-20 bg-gradient-primary dark:bg-gradient-to-r dark:from-blue-900 dark:to-purple-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -77,31 +76,28 @@ const Projects = () => {
             </p>
           </motion.div>
         </div>
-      </section>
-
-      {/* Filtros y búsqueda */}
-      <section className="py-8 bg-white border-b border-gray-200">
+      </section>      {/* Filtros y búsqueda */}
+      <section className="py-8 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between space-y-4 lg:space-y-0">
             {/* Búsqueda */}
             <div className="relative flex-1 max-w-md">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 dark:text-gray-500" size={20} />
               <input
                 type="text"
                 placeholder="Buscar proyectos..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full pl-10 pr-4 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               />
             </div>
 
             {/* Filtros de categoría */}
             <div className="flex items-center space-x-4">
-              <Filter size={20} className="text-gray-600" />
-              <select
-                value={selectedCategory}
+              <Filter size={20} className="text-gray-600 dark:text-gray-400" />
+              <select                value={selectedCategory}
                 onChange={(e) => setSelectedCategory(e.target.value)}
-                className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="px-4 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               >
                 {categories.map(category => (
                   <option key={category} value={category}>
@@ -118,7 +114,7 @@ const Projects = () => {
                 className={`p-2 rounded-lg transition-colors duration-300 ${
                   viewMode === 'grid' 
                     ? 'bg-blue-500 text-white' 
-                    : 'text-gray-600 hover:bg-gray-100'
+                    : 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
                 }`}
               >
                 <Grid size={20} />
@@ -128,7 +124,7 @@ const Projects = () => {
                 className={`p-2 rounded-lg transition-colors duration-300 ${
                   viewMode === 'list' 
                     ? 'bg-blue-500 text-white' 
-                    : 'text-gray-600 hover:bg-gray-100'
+                    : 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
                 }`}
               >
                 <List size={20} />
@@ -151,10 +147,9 @@ const Projects = () => {
                 ? 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8' 
                 : 'space-y-6'
             }>
-              {filteredProjects.map((project, index) => (
-                <motion.div
+              {filteredProjects.map((project, index) => (                <motion.div
                   key={project.id}
-                  className={`project-card bg-white ${viewMode === 'list' ? 'flex' : ''}`}
+                  className={`project-card bg-white dark:bg-gray-800 ${viewMode === 'list' ? 'flex' : ''}`}
                   initial={{ opacity: 0, y: 50 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: index * 0.1 }}
@@ -179,12 +174,11 @@ const Projects = () => {
                         <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-0 hover:opacity-70 transition-opacity duration-300"></div>
                         <div className="absolute bottom-4 left-4 right-4 transform translate-y-4 opacity-0 hover:translate-y-0 hover:opacity-100 transition-all duration-300">
                           <div className="flex space-x-2">
-                            {project.github && (
-                              <a
+                            {project.github && (                              <a
                                 href={project.github}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="p-2 bg-white rounded-full text-gray-800 hover:bg-gray-100 transition-colors duration-300"
+                                className="p-2 bg-white dark:bg-gray-700 rounded-full text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors duration-300"
                               >
                                 <Github size={16} />
                               </a>
@@ -194,7 +188,7 @@ const Projects = () => {
                                 href={project.live_url}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="p-2 bg-white rounded-full text-gray-800 hover:bg-gray-100 transition-colors duration-300"
+                                className="p-2 bg-white dark:bg-gray-700 rounded-full text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors duration-300"
                               >
                                 <ExternalLink size={16} />
                               </a>
@@ -204,11 +198,11 @@ const Projects = () => {
                       </div>
                       
                       <div className="p-6">                        <div className="flex items-center justify-between mb-2">
-                          <span className="text-sm text-gray-500 flex items-center">
+                          <span className="text-sm text-gray-500 dark:text-gray-400 flex items-center">
                             <Tag size={14} className="mr-1" />
                             {project.category}
                           </span>
-                          <span className="text-sm text-gray-500 flex items-center">
+                          <span className="text-sm text-gray-500 dark:text-gray-400 flex items-center">
                             <Calendar size={14} className="mr-1" />
                             {new Date(project.completion_date).toLocaleDateString('es-ES', {
                               year: 'numeric',
@@ -218,10 +212,10 @@ const Projects = () => {
                           </span>
                         </div>
                         
-                        <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                        <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
                           {project.title}
                         </h3>
-                        <p className="text-gray-600 mb-4 line-clamp-3">
+                        <p className="text-gray-600 dark:text-gray-300 mb-4 line-clamp-3">
                           {project.description}
                         </p>
                         
@@ -237,10 +231,9 @@ const Projects = () => {
                             </span>
                           )}
                         </div>
-                        
-                        <Link
+                          <Link
                           to={`/projects/${project.id}`}
-                          className="inline-flex items-center space-x-1 text-blue-600 hover:text-blue-800 font-medium"
+                          className="inline-flex items-center space-x-1 text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 font-medium"
                         >
                           <span>Ver detalles</span>
                           <ExternalLink size={16} />
@@ -259,12 +252,11 @@ const Projects = () => {
                       </div>
                       
                       <div className="flex-1 p-6">
-                        <div className="flex items-center justify-between mb-2">
-                          <div className="flex items-center space-x-4">
-                            <span className="text-sm text-gray-500 flex items-center">
+                        <div className="flex items-center justify-between mb-2">                          <div className="flex items-center space-x-4">
+                            <span className="text-sm text-gray-500 dark:text-gray-400 flex items-center">
                               <Tag size={14} className="mr-1" />
                               {project.category}
-                            </span>                            <span className="text-sm text-gray-500 flex items-center">
+                            </span>                            <span className="text-sm text-gray-500 dark:text-gray-400 flex items-center">
                               <Calendar size={14} className="mr-1" />
                               {new Date(project.completion_date).toLocaleDateString('es-ES', {
                                 year: 'numeric',
@@ -280,10 +272,10 @@ const Projects = () => {
                           )}
                         </div>
                         
-                        <h3 className="text-2xl font-semibold text-gray-900 mb-3">
+                        <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-3">
                           {project.title}
                         </h3>
-                        <p className="text-gray-600 mb-4">
+                        <p className="text-gray-600 dark:text-gray-300 mb-4">
                           {project.description}
                         </p>
                         
@@ -304,11 +296,10 @@ const Projects = () => {
                           </Link>
                           
                           {project.github && (
-                            <a
-                              href={project.github}
+                            <a                              href={project.github}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="flex items-center space-x-1 text-gray-600 hover:text-gray-800"
+                              className="flex items-center space-x-1 text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-white"
                             >
                               <Github size={16} />
                               <span>GitHub</span>
@@ -320,7 +311,7 @@ const Projects = () => {
                               href={project.live_url}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="flex items-center space-x-1 text-gray-600 hover:text-gray-800"
+                              className="flex items-center space-x-1 text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-white"
                             >
                               <ExternalLink size={16} />
                               <span>Ver sitio</span>
@@ -337,9 +328,8 @@ const Projects = () => {
         </div>
       </section>
 
-      {/* Botón para GitHub */}
-      <motion.div
-        className="text-center mt-12"
+      {/* Botón para GitHub */}      <motion.div
+        className="text-center mt-12 mb-16"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
@@ -349,7 +339,7 @@ const Projects = () => {
           href="https://github.com/ToniTF?tab=repositories"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center px-6 py-3 bg-blue-500 text-white rounded-lg text-lg font-medium hover:bg-blue-600 transition-colors duration-300"
+          className="inline-flex items-center px-6 py-3 bg-blue-500 text-white dark:bg-blue-600 dark:hover:bg-blue-700 rounded-lg text-lg font-medium hover:bg-blue-600 transition-colors duration-300"
         >
           Ver Repositorios en GitHub
           <Github className="ml-2 h-5 w-5" />

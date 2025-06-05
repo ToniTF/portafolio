@@ -15,6 +15,36 @@
   color: #f3f4f6;
 }
 
+/* Transiciones globales para cambios de tema */
+body, 
+body * {
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+/* Transiciones para el modo oscuro */
+*, *::before, *::after {
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+/* Transiciones mejoradas para elementos específicos */
+.hero-section,
+.project-card,
+.navbar-glass,
+section,
+.card,
+input,
+textarea,
+select,
+button {
+  transition-property: background-color, border-color, color, box-shadow, transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+}
+
 /* Scrollbar personalizado */
 ::-webkit-scrollbar {
   width: 8px;
@@ -25,7 +55,7 @@
 }
 
 .dark ::-webkit-scrollbar-track {
-  background-color: #f3f4f6;
+  background-color: #374151;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -34,7 +64,7 @@
 }
 
 .dark ::-webkit-scrollbar-thumb {
-  background-color: #d1d5db;
+  background-color: #6b7280;
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -42,7 +72,7 @@
 }
 
 .dark ::-webkit-scrollbar-thumb:hover {
-  background-color: #9ca3af;
+  background-color: #4b5563;
 }
 
 .App {
@@ -65,6 +95,10 @@
 /* Estilos para fondos gradientes */
 .bg-gradient-primary {
   background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+}
+
+.dark .bg-gradient-primary {
+  background: linear-gradient(to right, #1e40af, #4f46e5);
 }
 
 /* Animaciones */
@@ -105,7 +139,7 @@
 }
 
 .dark .glass {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(31, 41, 55, 0.75); /* Updated from rgba(255, 255, 255, 0.1) */
   color: #f3f4f6;
 }
 
@@ -172,6 +206,45 @@
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
 
+/* Tarjetas hover en modo oscuro */
+.dark .hover-card-effect:hover {
+  background-color: #2d3748;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
+}
+
+/* Mejora de contrastes para el modo oscuro */
+.dark .text-gray-500 {
+  color: #9ca3af; /* Asegura un mejor contraste con el fondo oscuro */
+}
+
+.dark .text-gray-600 {
+  color: #d1d5db; /* Asegura un mejor contraste con el fondo oscuro */
+}
+
+.dark .bg-gray-50 {
+  background-color: #111827; /* Un poco más oscuro que el valor por defecto */
+}
+
+/* Efecto hover en tarjetas para modo oscuro con contraste mejorado */
+.dark .hover-card-effect:hover {
+  background-color: #1f2937; /* Un poco más claro que el fondo oscuro base */
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(75, 85, 99, 0.3); /* Borde sutil para mejorar la separación visual */
+}
+
+/* Transiciones más suaves para cambios de tema */
+.dark, .dark * {
+  transition-duration: 300ms; /* Ligeramente más lento para una transición más suave */
+}
+
+/* Mejoras específicas para inputs en modo oscuro */
+.dark input:focus, 
+.dark textarea:focus, 
+.dark select:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.3);
+}
+
 /* Efectos de hover para botones */
 .btn-hover-lift {
   transition: all 0.3s ease;
@@ -187,6 +260,61 @@
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
 
+/* Botones */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1.25rem;
+  background-color: #3b82f6;
+  color: white;
+  font-weight: 500;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+}
+
+.btn-primary:hover {
+  background-color: #2563eb;
+  transform: translateY(-1px);
+}
+
+.dark .btn-primary {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.dark .btn-primary:hover {
+  background-color: #1d4ed8;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.1);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1.25rem;
+  background-color: #e5e7eb;
+  color: #4b5563;
+  font-weight: 500;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+}
+
+.btn-secondary:hover {
+  background-color: #d1d5db;
+  transform: translateY(-1px);
+}
+
+.dark .btn-secondary {
+  background-color: #374151;
+  color: #e5e7eb;
+}
+
+.dark .btn-secondary:hover {
+  background-color: #4b5563;
+}
+
 /* Navbar glass effect */
 .navbar-glass {
   background: rgba(255, 255, 255, 0.95);
@@ -195,7 +323,7 @@
 }
 
 .dark .navbar-glass {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(31, 41, 55, 0.75); /* Updated from rgba(255, 255, 255, 0.1) */
   color: #f3f4f6;
 }
 
@@ -226,6 +354,26 @@
 .focus-visible {
   outline: 2px solid var(--color-primary);
   outline-offset: 2px;
+}
+
+.dark .focus-visible:focus {
+  outline: 2px solid #93c5fd;
+  outline-offset: 2px;
+}
+
+/* Mejoras de accesibilidad para el modo oscuro */
+.dark *:focus-visible {
+  outline: 2px solid #60a5fa;
+  outline-offset: 2px;
+}
+
+/* Sombras específicas para modo oscuro */
+.dark .shadow-lg {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.15);
+}
+
+.dark .shadow-xl {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
 }
 
 /* Responsive design helpers */
@@ -271,4 +419,63 @@
   display: inline-block;
   font-size: 0.875rem;
   font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.dark .skill-tag {
+  background: rgba(99, 102, 241, 0.2);
+  color: #818cf8;
+}
+
+/* Enlaces y elementos interactivos */
+a {
+  color: #3b82f6;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: #2563eb;
+}
+
+.dark a {
+  color: #60a5fa;
+}
+
+.dark a:hover {
+  color: #93c5fd;
+}
+
+/* Mejoras para hover y focus en enlaces y elementos interactivos */
+.dark a:focus-visible,
+.dark button:focus-visible {
+  outline: 2px solid #60a5fa;
+  outline-offset: 2px;
+}
+
+/* Efectos de hover para tarjetas en modo oscuro */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.dark .hover-lift:hover {
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilos específicos para tarjetas y contenedores en modo oscuro */
+.dark .card,
+.dark .container-card {
+  background-color: #1f2937;
+  border-color: #374151;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.1);
+}
+
+.dark .card:hover,
+.dark .container-card:hover {
+  background-color: #263244;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.15);
 }

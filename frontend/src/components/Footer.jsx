@@ -11,22 +11,24 @@ const Footer = () => {
       name: 'GitHub',
       icon: Github,
       url: 'https://github.com/tonitf',
-      color: 'hover:text-gray-800'
+      color: 'hover:text-gray-800 dark:hover:text-gray-300'
     },
     {
       name: 'Email',
       icon: Mail,
       url: 'mailto:antonio@troitino.dev',
-      color: 'hover:text-green-600'
+      color: 'hover:text-green-600 dark:hover:text-green-400'
     }
-  ];  const quickLinks = [
+  ];  
+  
+  const quickLinks = [
     { name: 'Acerca de', path: '/about' },
     { name: 'Proyectos', path: '/projects' },
     { name: 'Contacto', path: '/contact' }
   ]
 
   return (
-    <footer className="bg-gray-900 text-white">
+    <footer className="bg-gray-900 dark:bg-gray-950 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Logo y descripción */}
@@ -45,7 +47,8 @@ const Footer = () => {
             </Link>
             <p className="text-gray-400 mb-4 max-w-md">
               Desarrollador comprometido con la creación de soluciones digitales innovadoras, integrando tecnología y bienestar para generar impacto positivo.
-            </p>            <div className="flex items-center space-x-4">
+            </p>            
+            <div className="flex items-center space-x-4">
               
             </div>
           </div>

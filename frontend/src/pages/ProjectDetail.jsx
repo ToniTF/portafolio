@@ -51,11 +51,10 @@ const ProjectDetail = () => {
       </div>
     )
   }
-
   return (
-    <div className="min-h-screen pt-16 bg-gray-50">
+    <div className="min-h-screen pt-16 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
       {/* Header */}
-      <section className="py-12 bg-white">
+      <section className="py-12 bg-white dark:bg-gray-800 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -64,20 +63,19 @@ const ProjectDetail = () => {
           >
             <Link 
               to="/projects" 
-              className="inline-flex items-center space-x-2 text-blue-600 hover:text-blue-800 mb-6"
+              className="inline-flex items-center space-x-2 text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 mb-6"
             >
               <ArrowLeft size={20} />
               <span>Volver a proyectos</span>
             </Link>
 
-            <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-8">
-              <div className="flex-1">
+            <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-8">              <div className="flex-1">
                 <div className="flex items-center space-x-4 mb-4">
-                  <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium flex items-center">
+                  <span className="bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-300 px-3 py-1 rounded-full text-sm font-medium flex items-center">
                     <Tag size={14} className="mr-1" />
                     {project.category}
                   </span>
-                  <span className="text-gray-500 flex items-center">
+                  <span className="text-gray-500 dark:text-gray-400 flex items-center">
                     <Calendar size={14} className="mr-1" />
                     {new Date(project.completion_date).toLocaleDateString('es-ES')}
                   </span>
@@ -88,11 +86,11 @@ const ProjectDetail = () => {
                   )}
                 </div>
 
-                <h1 className="text-4xl md:text-5xl font-display font-bold text-gray-900 mb-4">
+                <h1 className="text-4xl md:text-5xl font-display font-bold text-gray-900 dark:text-white mb-4">
                   {project.title}
                 </h1>
                 
-                <p className="text-xl text-gray-600 mb-6 max-w-3xl">
+                <p className="text-xl text-gray-600 dark:text-gray-400 mb-6 max-w-3xl">
                   {project.long_description || project.description}
                 </p>
 
@@ -197,10 +195,10 @@ const ProjectDetail = () => {
                   transition={{ duration: 0.8 }}
                   viewport={{ once: true }}
                 >
-                  <h2 className="text-2xl font-semibold text-gray-900 mb-6">
+                  <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">
                     Características Principales
                   </h2>
-                  <div className="bg-white rounded-xl p-6 shadow-lg">
+                  <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg dark:shadow-gray-900/30">
                     <ul className="space-y-3">
                       {project.features.map((feature, index) => (
                         <motion.li
@@ -212,7 +210,7 @@ const ProjectDetail = () => {
                           viewport={{ once: true }}
                         >
                           <CheckCircle className="text-green-500 mt-0.5 flex-shrink-0" size={20} />
-                          <span className="text-gray-700">{feature}</span>
+                          <span className="text-gray-700 dark:text-gray-300">{feature}</span>
                         </motion.li>
                       ))}
                     </ul>
@@ -228,10 +226,10 @@ const ProjectDetail = () => {
                   transition={{ duration: 0.8 }}
                   viewport={{ once: true }}
                 >
-                  <h2 className="text-2xl font-semibold text-gray-900 mb-6">
+                  <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">
                     Desafíos Técnicos
                   </h2>
-                  <div className="bg-white rounded-xl p-6 shadow-lg">
+                  <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg dark:shadow-gray-900/30">
                     <ul className="space-y-3">
                       {project.challenges.map((challenge, index) => (
                         <motion.li
@@ -243,7 +241,7 @@ const ProjectDetail = () => {
                           viewport={{ once: true }}
                         >
                           <Lightbulb className="text-amber-500 mt-0.5 flex-shrink-0" size={20} />
-                          <span className="text-gray-700">{challenge}</span>
+                          <span className="text-gray-700 dark:text-gray-300">{challenge}</span>
                         </motion.li>
                       ))}
                     </ul>
@@ -254,27 +252,26 @@ const ProjectDetail = () => {
 
             {/* Sidebar */}
             <div className="space-y-6">
-              {/* Información del proyecto */}
-              <motion.div
-                className="bg-white rounded-xl p-6 shadow-lg"
+              {/* Información del proyecto */}              <motion.div
+                className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg dark:shadow-gray-900/30"
                 initial={{ opacity: 0, x: 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
               >
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
                   Información del Proyecto
                 </h3>
                 
                 <div className="space-y-4">
                   <div>
-                    <span className="text-sm font-medium text-gray-500">Categoría</span>
-                    <p className="text-gray-900">{project.category}</p>
+                    <span className="text-sm font-medium text-gray-500 dark:text-gray-400">Categoría</span>
+                    <p className="text-gray-900 dark:text-gray-300">{project.category}</p>
                   </div>
                   
                   <div>
-                    <span className="text-sm font-medium text-gray-500">Fecha de Finalización</span>
-                    <p className="text-gray-900">
+                    <span className="text-sm font-medium text-gray-500 dark:text-gray-400">Fecha de Finalización</span>
+                    <p className="text-gray-900 dark:text-gray-300">
                       {new Date(project.completion_date).toLocaleDateString('es-ES', {
                         year: 'numeric',
                         month: 'long',
@@ -282,12 +279,11 @@ const ProjectDetail = () => {
                       })}
                     </p>
                   </div>
-                  
-                  <div>
-                    <span className="text-sm font-medium text-gray-500">Tecnologías</span>
+                    <div>
+                    <span className="text-sm font-medium text-gray-500 dark:text-gray-400">Tecnologías</span>
                     <div className="flex flex-wrap gap-2 mt-2">
                       {project.technologies.map((tech) => (
-                        <span key={tech} className="bg-gray-100 text-gray-800 px-2 py-1 rounded text-sm">
+                        <span key={tech} className="bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-300 px-2 py-1 rounded text-sm">
                           {tech}
                         </span>
                       ))}
@@ -296,15 +292,14 @@ const ProjectDetail = () => {
                 </div>
               </motion.div>
 
-              {/* Enlaces */}
-              <motion.div
-                className="bg-white rounded-xl p-6 shadow-lg"
+              {/* Enlaces */}              <motion.div
+                className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg dark:shadow-gray-900/30"
                 initial={{ opacity: 0, x: 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: 0.1 }}
                 viewport={{ once: true }}
               >
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
                   Enlaces
                 </h3>
                 
@@ -314,19 +309,18 @@ const ProjectDetail = () => {
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center space-x-2 text-gray-600 hover:text-gray-900 transition-colors duration-300"
+                      className="flex items-center space-x-2 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors duration-300"
                     >
                       <Github size={18} />
                       <span>Repositorio en GitHub</span>
                     </a>
                   )}
-                  
-                  {project.live_url && (
+                    {project.live_url && (
                     <a
                       href={project.live_url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center space-x-2 text-gray-600 hover:text-gray-900 transition-colors duration-300"
+                      className="flex items-center space-x-2 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors duration-300"
                     >
                       <ExternalLink size={18} />
                       <span>Ver proyecto en vivo</span>
@@ -335,9 +329,8 @@ const ProjectDetail = () => {
                 </div>
               </motion.div>
 
-              {/* CTA */}
-              <motion.div
-                className="bg-gradient-primary rounded-xl p-6 text-white text-center"
+              {/* CTA */}              <motion.div
+                className="bg-gradient-primary dark:bg-gradient-to-r dark:from-blue-900 dark:to-purple-900 rounded-xl p-6 text-white text-center"
                 initial={{ opacity: 0, x: 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}

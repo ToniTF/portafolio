@@ -84,11 +84,10 @@ const FloatingButton = () => {
 
   return (
     <>
-      {/* Botón flotante con imagen personalizada */}
-      <button
+      {/* Botón flotante con imagen personalizada */}      <button
         onClick={() => setIsOpen(true)}
         className={`fixed bottom-4 right-4 z-50 rounded-full shadow-lg transition-colors duration-300 overflow-hidden ${
-          isOpen ? 'bg-red-500 p-2' : 'bg-white p-0' 
+          isOpen ? 'bg-red-500 p-2' : 'bg-white dark:bg-gray-800 p-0' 
         }`}
         aria-label={isOpen ? "Cerrar charla" : "Abrir charla"}
         style={{ width: isOpen ? '40px' : '50px', height: isOpen ? '40px' : '50px' }}
@@ -105,9 +104,8 @@ const FloatingButton = () => {
       </button>
 
       {/* Ventana de charla */}
-      {isOpen && (
-        <div className="fixed bottom-20 right-4 w-80 sm:w-96 bg-white rounded-lg shadow-xl z-40 border border-gray-200 flex flex-col max-h-[70vh]">
-          <div className="p-4 bg-blue-500 text-white rounded-t-lg flex justify-between items-center">
+      {isOpen && (        <div className="fixed bottom-20 right-4 w-80 sm:w-96 bg-white dark:bg-gray-800 rounded-lg shadow-xl z-40 border border-gray-200 dark:border-gray-700 flex flex-col max-h-[70vh]">
+          <div className="p-4 bg-blue-500 dark:bg-blue-700 text-white rounded-t-lg flex justify-between items-center">
             <h3 className="font-medium">charla con Antonio</h3>
             <button 
               onClick={() => setIsOpen(false)}
@@ -118,8 +116,7 @@ const FloatingButton = () => {
           </div>
 
           {/* Historial de charla */}
-          <div className="flex-1 p-4 overflow-y-auto min-h-[200px] max-h-[50vh]">            {charlaHistory.length === 0 ? (
-              <div className="text-center text-gray-500 py-8">
+          <div className="flex-1 p-4 overflow-y-auto min-h-[200px] max-h-[50vh]">            {charlaHistory.length === 0 ? (              <div className="text-center text-gray-500 dark:text-gray-400 py-8">
                 <Bot className="mx-auto mb-2" size={24} />
                 <p>Hola, soy el asistente virtual de Antonio. Puedo responder a tus preguntas sobre su perfil profesional, habilidades y proyectos.</p>
               </div>
@@ -133,10 +130,9 @@ const FloatingButton = () => {
                     <div 
                       className={`max-w-[80%] p-3 rounded-lg ${
                         message.isUser 
-                          ? 'bg-blue-500 text-white rounded-br-none' 
-                          : message.isError
-                            ? 'bg-red-100 text-red-800 rounded-bl-none'
-                            : 'bg-gray-100 text-gray-800 rounded-bl-none'
+                          ? 'bg-blue-500 text-white rounded-br-none'                          : message.isError
+                            ? 'bg-red-100 dark:bg-red-900/50 text-red-800 dark:text-red-300 rounded-bl-none'
+                            : 'bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded-bl-none'
                       }`}
                     >
                       {message.text}
@@ -144,8 +140,7 @@ const FloatingButton = () => {
                   </div>
                 ))}
                 {isLoading && (
-                  <div className="flex justify-start">
-                    <div className="bg-gray-100 p-3 rounded-lg rounded-bl-none max-w-[80%]">
+                  <div className="flex justify-start">                    <div className="bg-gray-100 dark:bg-gray-700 p-3 rounded-lg rounded-bl-none max-w-[80%]">
                       <div className="flex space-x-2">
                         <div className="w-2 h-2 rounded-full bg-gray-400 animate-bounce"></div>
                         <div className="w-2 h-2 rounded-full bg-gray-400 animate-bounce" style={{ animationDelay: '0.2s' }}></div>
@@ -158,15 +153,14 @@ const FloatingButton = () => {
             )}
           </div>
 
-          {/* Formulario de entrada */}
-          <form onSubmit={handleSubmit} className="border-t border-gray-200 p-4">
+          {/* Formulario de entrada */}          <form onSubmit={handleSubmit} className="border-t border-gray-200 dark:border-gray-700 p-4">
             <div className="flex items-center space-x-2">
               <input
                 type="text"
                 value={prompt}
                 onChange={(e) => setPrompt(e.target.value)}
                 placeholder="Escribe tu mensaje..."
-                className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="flex-1 px-4 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 disabled={isLoading}
               />
               <button
