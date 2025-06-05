@@ -59,7 +59,6 @@ const Home = () => {
             />
           ))}
         </div>
-
         <motion.div 
           className="relative z-10 flex items-center justify-center min-h-screen px-4 sm:px-6 lg:px-8"
           style={{ y: heroY, opacity: heroOpacity }}
@@ -80,9 +79,9 @@ const Home = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
               </div>
-                {/* Floating badges */}
+              {/* Floating badges */}
               <motion.div
-                className="absolute -top-2 -right-2 bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-medium"
+                className="absolute -top-2 -right-2 bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-medium shadow-md dark:shadow-blue-900"
                 animate={{ rotate: [0, 5, 0, -5, 0] }}
                 transition={{ duration: 2, repeat: Infinity }}
               >
@@ -91,7 +90,7 @@ const Home = () => {
               </motion.div>
               
               <motion.div
-                className="absolute -bottom-2 -left-2 bg-purple-500 text-white px-3 py-1 rounded-full text-sm font-medium"
+                className="absolute -bottom-2 -left-2 bg-purple-500 text-white px-3 py-1 rounded-full text-sm font-medium shadow-md dark:shadow-purple-900"
                 animate={{ rotate: [0, -5, 0, 5, 0] }}
                 transition={{ duration: 2, repeat: Infinity, delay: 1 }}
               >
@@ -100,7 +99,7 @@ const Home = () => {
               </motion.div>
               
               <motion.div
-                className="absolute -top-2 -left-2 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-medium"
+                className="absolute -top-2 -left-2 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-medium shadow-md dark:shadow-green-900"
                 animate={{ rotate: [0, 3, 0, -3, 0] }}
                 transition={{ duration: 2.5, repeat: Infinity, delay: 0.5 }}
               >
@@ -109,7 +108,7 @@ const Home = () => {
               </motion.div>
               
               <motion.div
-                className="absolute -bottom-2 -right-2 bg-cyan-500 text-white px-3 py-1 rounded-full text-sm font-medium"
+                className="absolute -bottom-2 -right-2 bg-cyan-500 text-white px-3 py-1 rounded-full text-sm font-medium shadow-md dark:shadow-cyan-900"
                 animate={{ rotate: [0, -3, 0, 3, 0] }}
                 transition={{ duration: 2.2, repeat: Infinity, delay: 1.5 }}
               >
@@ -143,16 +142,12 @@ const Home = () => {
                   Troitiño
                 </motion.span>
               </h1>
-                <motion.div
-                className="flex flex-wrap items-center justify-center gap-4 mb-6"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.9 }}
-              >                <Badge className="bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200 px-4 py-2 text-lg">
+              <div className="flex flex-wrap items-center justify-center gap-4 mb-6">
+                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200 dark:border dark:border-gray-600">
                   <Code size={18} className="mr-2" />
                   Developer
-                </Badge>
-              </motion.div>
+                </span>
+              </div>
             </motion.div>
 
             {/* Description */}

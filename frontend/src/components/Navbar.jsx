@@ -165,7 +165,7 @@ const Navbar = () => {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="md:hidden bg-white/95 dark:bg-gray-900/95 backdrop-blur-md border-t border-gray-200 dark:border-gray-700"
+            className="md:hidden bg-gray-100 dark:bg-gray-800 backdrop-blur-md border-t border-gray-200 dark:border-gray-700"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
@@ -173,7 +173,7 @@ const Navbar = () => {
           >
             <div className="px-4 py-2 space-y-1">
               {navItems.map((item, index) => {
-                const IconComponent = item.icon
+                const IconComponent = item.icon;
                 return (
                   <motion.div
                     key={item.path}
@@ -194,25 +194,8 @@ const Navbar = () => {
                       <span>{item.name}</span>
                     </Link>
                   </motion.div>
-                )
+                );
               })}
-              
-              {/* Mobile admin link */}
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: navItems.length * 0.1 }}
-                className="pt-2 border-t border-gray-200 dark:border-gray-700"
-              >
-                <Link
-                  to="/admin"
-                  onClick={() => setIsOpen(false)}
-                  className="flex items-center space-x-2 px-3 py-2 rounded-lg text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
-                >
-                  <Shield size={16} />
-                  <span>Panel Admin</span>
-                </Link>
-              </motion.div>
             </div>
           </motion.div>
         )}
