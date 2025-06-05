@@ -86,8 +86,8 @@ const FloatingButton = () => {
     <>
       {/* Botón flotante con imagen personalizada */}      <button
         onClick={() => setIsOpen(true)}
-        className={`fixed bottom-4 right-4 z-50 rounded-full shadow-lg transition-colors duration-300 overflow-hidden ${
-          isOpen ? 'bg-red-500 p-2' : 'bg-white dark:bg-gray-800 p-0' 
+        className={`fixed bottom-4 right-4 z-50 rounded-full shadow-lg dark:shadow-blue-900/20 transition-colors duration-300 overflow-hidden ${
+          isOpen ? 'bg-red-500 p-2' : 'bg-white dark:bg-gray-700 p-0' 
         }`}
         aria-label={isOpen ? "Cerrar charla" : "Abrir charla"}
         style={{ width: isOpen ? '40px' : '50px', height: isOpen ? '40px' : '50px' }}

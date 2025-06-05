@@ -32,8 +32,7 @@ const Home = () => {
   const scrollToSection = (id) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
   }
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-purple-900 transition-colors duration-300">
+  return (    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-indigo-900 transition-colors duration-300">
       {/* Hero Section */}
       <section className="min-h-screen relative overflow-hidden">
         {/* Animated background elements */}
@@ -243,7 +242,7 @@ const Home = () => {
           </div>
         </motion.div>
       </section>      {/* About Section Preview */}
-      <section id="about" className="py-20 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 transition-colors duration-300">
+      <section id="about" className="py-20 bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             className="text-center mb-16"
@@ -311,10 +310,8 @@ const Home = () => {
             </motion.div>
           </div>
         </div>
-      </section>
-
-      {/* Featured Projects */}
-      <section className="py-20 bg-gray-50 dark:bg-gray-900">
+      </section>      {/* Featured Projects */}
+      <section className="py-20 bg-gray-50 dark:bg-gray-800 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             className="text-center mb-16"
@@ -372,8 +369,7 @@ const Home = () => {
                         </div>
                       </div>
                     </div>
-                    
-                    <div className="p-6 flex-1 flex flex-col">
+                      <div className="p-6 flex-1 flex flex-col">
                       <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
                         {project.title}
                       </h3>

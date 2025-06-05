@@ -20,14 +20,14 @@ body,
 body * {
   transition-property: background-color, border-color, color, fill, stroke;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
+  transition-duration: 300ms;
 }
 
 /* Transiciones para el modo oscuro */
 *, *::before, *::after {
   transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
+  transition-duration: 300ms;
 }
 
 /* Transiciones mejoradas para elementos específicos */
@@ -212,7 +212,7 @@ button {
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
 }
 
-/* Mejora de contrastes para el modo oscuro */
+/* Mejoras de contrastes para el modo oscuro */
 .dark .text-gray-500 {
   color: #9ca3af; /* Asegura un mejor contraste con el fondo oscuro */
 }
@@ -223,6 +223,36 @@ button {
 
 .dark .bg-gray-50 {
   background-color: #111827; /* Un poco más oscuro que el valor por defecto */
+}
+
+/* Mejoras para visibilidad de texto en modo oscuro */
+.dark .text-gray-800,
+.dark .text-gray-900 {
+  color: #f3f4f6; /* Asegura que los textos oscuros sean claros en modo oscuro */
+}
+
+.dark .text-gray-700 {
+  color: #e5e7eb; /* Gris claro en modo oscuro */
+}
+
+/* Mejoras para badges y etiquetas en modo oscuro */
+.dark .badge, 
+.dark span[class*="rounded-full"] {
+  border: 1px solid rgba(75, 85, 99, 0.3); /* Añade un borde sutil para mejor separación visual */
+}
+
+/* Mejoras para el contraste en modo oscuro */
+.dark {
+  color-scheme: dark;
+  --bg-card: #1f2937;
+  --text-primary: #f9fafb;
+  --text-secondary: #e5e7eb;
+  --text-muted: #9ca3af;
+}
+
+/* Mejoras para las imágenes en modo oscuro */
+.dark img {
+  filter: brightness(0.9); /* Reduce ligeramente el brillo de las imágenes */
 }
 
 /* Efecto hover en tarjetas para modo oscuro con contraste mejorado */
@@ -281,6 +311,7 @@ button {
 .dark .btn-primary {
   background-color: #3b82f6;
   color: white;
+  box-shadow: 0 0 20px rgba(37, 99, 235, 0.3);
 }
 
 .dark .btn-primary:hover {
@@ -309,6 +340,7 @@ button {
 .dark .btn-secondary {
   background-color: #374151;
   color: #e5e7eb;
+  box-shadow: 0 0 15px rgba(75, 85, 99, 0.2);
 }
 
 .dark .btn-secondary:hover {
@@ -424,7 +456,8 @@ button {
 
 .dark .skill-tag {
   background: rgba(99, 102, 241, 0.2);
-  color: #818cf8;
+  color: #a5b4fc;
+  border: 1px solid rgba(99, 102, 241, 0.3);
 }
 
 /* Enlaces y elementos interactivos */
@@ -463,7 +496,8 @@ a:hover {
 }
 
 .dark .hover-lift:hover {
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.4);
 }
 
 /* Estilos específicos para tarjetas y contenedores en modo oscuro */
@@ -478,4 +512,76 @@ a:hover {
 .dark .container-card:hover {
   background-color: #263244;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.15);
+}
+
+/* Mejoras específicas para botones en modo oscuro */
+.dark .btn-primary {
+  box-shadow: 0 0 20px rgba(37, 99, 235, 0.3);
+}
+
+.dark .btn-secondary {
+  box-shadow: 0 0 15px rgba(75, 85, 99, 0.2);
+}
+
+/* Mejorar la legibilidad de textos en fondos oscuros */
+.dark h1, 
+.dark h2, 
+.dark h3, 
+.dark h4, 
+.dark h5, 
+.dark h6 {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Mejorar tarjetas en modo oscuro */
+.dark .card,
+.dark .project-card,
+.dark [class*="rounded-xl"],
+.dark [class*="bg-white"] {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  background-color: #1f2937 !important;
+}
+
+/* Asegurar que todos los elementos con fondo blanco se vean correctamente en modo oscuro */
+.dark [class*="bg-white"] {
+  background-color: #1f2937 !important;
+}
+
+/* Asegurar que los textos oscuros se vean bien en el modo oscuro */
+.dark [class*="text-gray-900"] {
+  color: #f9fafb !important;
+}
+
+.dark [class*="text-gray-800"] {
+  color: #f3f4f6 !important;
+}
+
+.dark [class*="text-gray-700"] {
+  color: #e5e7eb !important;
+}
+
+/* Mejorar bordes y separadores en modo oscuro */
+.dark [class*="border-gray-200"] {
+  border-color: rgba(75, 85, 99, 0.3) !important;
+}
+
+/* Hacer que las imágenes sean menos brillantes en modo oscuro */
+.dark img {
+  filter: brightness(0.9) contrast(1.1);
+}
+
+/* Mejoras para formularios en modo oscuro */
+.dark input,
+.dark textarea,
+.dark select {
+  background-color: #1f2937;
+  border-color: #374151;
+  color: #e5e7eb;
+}
+
+.dark input:focus,
+.dark textarea:focus,
+.dark select:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.3);
 }

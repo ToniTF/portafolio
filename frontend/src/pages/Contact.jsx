@@ -32,7 +32,8 @@ const Contact = () => {
       href: null,
       description: 'Sesiones presenciales y remotas'
     }
-  ]
+  ];
+
   const socialLinks = [
     {
       name: 'GitHub',
@@ -51,9 +52,11 @@ const Contact = () => {
       icon: Instagram,
       url: 'https://instagram.com/antonio.troitino',
       color: 'hover:text-pink-600 dark:hover:text-pink-400'
-    }]
+    }
+  ];
 
-  return (    <div className="min-h-screen pt-16 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+  return (
+    <div className="min-h-screen pt-16 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
       {/* Hero Section */}
       <section className="py-20 bg-gradient-primary dark:bg-gradient-to-r dark:from-blue-900 dark:to-indigo-900 shadow-lg dark:shadow-blue-900/20 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -65,7 +68,7 @@ const Contact = () => {
             <h1 className="text-4xl md:text-6xl font-display font-bold text-white mb-6">
               Hablemos
             </h1>
-            <p className="text-xl text-blue-100 max-w-3xl mx-auto">
+            <p className="text-xl text-blue-100 dark:text-blue-300 max-w-3xl mx-auto">
               ¿Tienes un proyecto en mente? 
               Me encantaría conocerte y ver cómo puedo ayudarte.
             </p>
@@ -84,14 +87,15 @@ const Contact = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
-              >                <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">
+              >
+                <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">
                   Información de Contacto
                 </h2>
-                
                 <div className="space-y-4">
                   {contactInfo.map((item, index) => {
-                    const IconComponent = item.icon
-                    const content = (                      <motion.div
+                    const IconComponent = item.icon;
+                    const content = (
+                      <motion.div
                         className="flex items-start space-x-4 p-4 bg-white dark:bg-gray-800 rounded-xl shadow-lg dark:shadow-gray-900/30 hover-lift transition-all duration-300"
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -109,22 +113,23 @@ const Contact = () => {
                           <p className="text-sm text-gray-500 dark:text-gray-400">{item.description}</p>
                         </div>
                       </motion.div>
-                    )
+                    );
 
                     return item.href ? (
-                      <a key={index} href={item.href}>
+                      <a key={index} href={item.href} className="focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400">
                         {content}
                       </a>
                     ) : (
                       <div key={index}>
                         {content}
                       </div>
-                    )
+                    );
                   })}
                 </div>
               </motion.div>
 
-              {/* Redes sociales */}              <motion.div
+              {/* Redes sociales */}
+              <motion.div
                 className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg dark:shadow-gray-900/30 transition-all duration-300"
                 initial={{ opacity: 0, x: -50 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -134,10 +139,9 @@ const Contact = () => {
                 <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
                   Sígueme en Redes
                 </h3>
-                
                 <div className="flex space-x-4">
                   {socialLinks.map((social) => {
-                    const IconComponent = social.icon
+                    const IconComponent = social.icon;
                     return (
                       <motion.a
                         key={social.name}
@@ -150,7 +154,7 @@ const Contact = () => {
                       >
                         <IconComponent size={20} />
                       </motion.a>
-                    )
+                    );
                   })}
                 </div>
               </motion.div>
@@ -159,7 +163,7 @@ const Contact = () => {
         </div>
       </section>
     </div>
-  )
-}
+  );
+};
 
-export default Contact
+export default Contact;

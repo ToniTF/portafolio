@@ -37,11 +37,10 @@ const ProjectDetail = () => {
   }
 
   if (error || !project) {
-    return (
-      <div className="min-h-screen flex items-center justify-center pt-16">
+    return (      <div className="min-h-screen flex items-center justify-center pt-16">
         <div className="text-center">
           <AlertCircle size={64} className="text-red-500 mx-auto mb-4" />
-          <h2 className="text-2xl font-semibold text-gray-900 mb-2">
+          <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-2">
             {error || 'Proyecto no encontrado'}
           </h2>
           <Link to="/projects" className="btn-primary">
@@ -164,8 +163,7 @@ const ProjectDetail = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8 }}
                   viewport={{ once: true }}
-                >
-                  <h2 className="text-2xl font-semibold text-gray-900 mb-6">
+                >                  <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">
                     Galería del Proyecto
                   </h2>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
